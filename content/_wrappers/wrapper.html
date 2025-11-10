@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    [! include "_wrappers/_head.html" !]
+    [! include "styles/_main.html" !]
+    [! include "_includes/bitty-page-functions.html" !]
+  </head>
+  <body>
+    <div class="load-hider">
+      [! include "_wrappers/_noscript.html" !]
+
+      [! include "_wrappers/_header.html" !]
+
+      <main class="default-wrapper">
+        [! block main !][! endblock !]
+      </main>
+
+      [! include "_wrappers/_footer.html" !]
+    </div>
+
+    <script src="/components/bitty-4.0.0-rc1.full.js" type="module"></script>
+    <script>
+      setTimeout(() => { 
+        document.documentElement.style.setProperty("--load-hider", "1");
+      }, 1100);
+    </script>
+  </body>
+</html>
