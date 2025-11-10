@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap');
+
+:root, [data-scheme="light"] {
+  --color-scheme: light;
+  --color-background: oklch(93.076% 0.03467 92.999);
+  --color-heading: oklch(33.076% 0.13467 212.999);
+  --color-link: oklch(33.076% 0.23467 212.999);
+  --color-text: oklch(33.076% 0.03467 92.999);
+}
+
+[data-scheme="white"] {
+  --color-scheme: light;
+  --color-background: white;
+  --color-heading: black;
+  --color-link: #00f;
+  --color-text: black;
+}
+
+[data-scheme="black"] {
+  --color-scheme: dark;
+  --color-background: black;
+  --color-heading: white;
+  --color-link: #ff0;
+  --color-text: white;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-scheme: dark;
+    --color-background: oklch(16.009% 0.03076 39.927);
+    --color-heading: oklch(56.009% 0.23076 219.927);
+    --color-link: oklch(76.009% 0.23076 99.927);
+    --color-text: oklch(96.009% 0.03076 339.927);
+  }
+}
+
+*, 
+*::before, 
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+a,
+a:active, 
+a:focus {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a[target="_blank"]:after {
+  content: "\2750";
+  margin: 0 3px 0 5px;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-size: 16px;
+  font-family: "Afacad Flux";
+  font-size: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
+  line-height: 1.5; 
+  color-scheme: var(--color-scheme);
+}
+
+.flow > :where(:not(:first-child)) {
+  margin-top: var(--flow-space, 1em);
+}
+
+footer {
+  margin-block: 1.9rem;
+  padding-block: 0.4rem;
+  border-top: 1px solid var(--color-text);
+}
+
+h1 {
+  font-size: 3.2rem;
+  line-height: 1.1;
+  text-wrap: balance;
+  font-weight: 900;
+  color: var(--color-heading);
+}
+
+h2 {
+  font-weight: 900;
+  border-bottom: 1px solid var(--color-text);
+  color: var(--color-heading);
+}
+
+header {
+  margin-block: 1.9rem;
+  padding-block: 0.4rem;
+}
+
+.scheme-list {
+  display: flex;
+  gap: 1rem;
+}
+
+.tag-line{
+  margin-block: 0.9rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.wrapper {
+  width: min(100vw - 3rem, 58ch);
+  margin-inline: auto;
+}
