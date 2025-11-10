@@ -230,3 +230,39 @@
 {"timestamp":"2025-11-10T20:52:29.586932Z","level":"INFO","fields":{"message":"Initial Pass: Transform Files..."},"target":"simple_site_builder::builder"}
 {"timestamp":"2025-11-10T20:52:29.587393Z","level":"INFO","fields":{"message":"Loading JSONs."},"target":"simple_site_builder::builder"}
 {"timestamp":"2025-11-10T20:52:29.591000Z","level":"INFO","fields":{"message":"Build complete. Reloading browser on port 5444."},"target":"simple_site_builder::builder"}
+{"timestamp":"2025-11-10T20:57:10.748059Z","level":"INFO","fields":{"message":"Initilizing"},"target":"ssb_0_8"}
+{"timestamp":"2025-11-10T20:57:10.748419Z","level":"INFO","fields":{"message":"Found port for web server: 5444"},"target":"ssb_0_8"}
+{"timestamp":"2025-11-10T20:57:10.748810Z","level":"INFO","fields":{"message":"Starting watcher"},"target":"simple_site_builder::watcher"}
+{"timestamp":"2025-11-10T20:57:10.748835Z","level":"INFO","fields":{"message":"Starting web server"},"target":"simple_site_builder::server"}
+{"timestamp":"2025-11-10T20:57:10.748842Z","level":"INFO","fields":{"message":"Starting builder"},"target":"simple_site_builder::builder"}
+{"timestamp":"2025-11-10T20:57:10.748896Z","level":"INFO","fields":{"message":"Building site on port 5444."},"target":"simple_site_builder::builder"}
+{"timestamp":"2025-11-10T20:57:10.750347Z","level":"INFO","fields":{"message":"obtaining pathset","config_pathset":"[WatchedPath { path: \"content\", recursive: true }, WatchedPath { path: \"support\", recursive: true }]"},"target":"watchexec::sources::fs"}
+{"timestamp":"2025-11-10T20:57:10.750537Z","level":"INFO","fields":{"message":"Initial Pass: Loading File List..."},"target":"simple_site_builder::builder"}
+{"timestamp":"2025-11-10T20:57:10.751263Z","level":"INFO","fields":{"message":"Initial Pass: Copying files..."},"target":"simple_site_builder::builder"}
+{"timestamp":"2025-11-10T20:57:10.757019Z","level":"INFO","fields":{"message":"Initial Pass: Transform Files..."},"target":"simple_site_builder::builder"}
+{"timestamp":"2025-11-10T20:57:10.759245Z","level":"INFO","fields":{"message":"Loading JSONs."},"target":"simple_site_builder::builder"}
+{"timestamp":"2025-11-10T20:57:10.763293Z","level":"INFO","fields":{"message":"Output Pass: Loading File List..."},"target":"simple_site_builder::builder"}
+{"timestamp":"2025-11-10T20:57:10.763551Z","level":"INFO","fields":{"message":"Initial Pass: Copying files..."},"target":"simple_site_builder::builder"}
+{"timestamp":"2025-11-10T20:57:10.765984Z","level":"INFO","fields":{"message":"Initial Pass: Transform Files..."},"target":"simple_site_builder::builder"}
+{"timestamp":"2025-11-10T20:57:10.766222Z","level":"INFO","fields":{"message":"Loading JSONs."},"target":"simple_site_builder::builder"}
+{"timestamp":"2025-11-10T20:57:10.768361Z","level":"INFO","fields":{"message":"Build complete. Reloading browser on port 5444."},"target":"simple_site_builder::builder"}
+{"timestamp":"2025-11-10T20:58:11.410595Z","level":"INFO","fields":{"message":"Building site on port 5444."},"target":"simple_site_builder::builder"}
+{"timestamp":"2025-11-10T20:58:11.415568Z","level":"INFO","fields":{"message":"Initial Pass: Loading File List..."},"target":"simple_site_builder::builder"}
+{"timestamp":"2025-11-10T20:58:11.416312Z","level":"INFO","fields":{"message":"Initial Pass: Copying files..."},"target":"simple_site_builder::builder"}
+{"timestamp":"2025-11-10T20:58:11.422683Z","level":"INFO","fields":{"message":"Initial Pass: Transform Files..."},"target":"simple_site_builder::builder"}
+{"timestamp":"2025-11-10T20:58:11.423050Z","level":"INFO","fields":{"message":"Loading JSONs."},"target":"simple_site_builder::builder"}
+{"timestamp":"2025-11-10T20:58:11.424761Z","level":"INFO","fields":{"message":"Output Pass: Loading File List..."},"target":"simple_site_builder::builder"}
+{"timestamp":"2025-11-10T20:58:11.424969Z","level":"INFO","fields":{"message":"Initial Pass: Copying files..."},"target":"simple_site_builder::builder"}
+{"timestamp":"2025-11-10T20:58:11.427616Z","level":"INFO","fields":{"message":"Initial Pass: Transform Files..."},"target":"simple_site_builder::builder"}
+{"timestamp":"2025-11-10T20:58:11.427898Z","level":"INFO","fields":{"message":"Loading JSONs."},"target":"simple_site_builder::builder"}
+{"timestamp":"2025-11-10T20:58:11.429969Z","level":"INFO","fields":{"message":"Build complete. Reloading browser on port 5444."},"target":"simple_site_builder::builder"}
+{"timestamp":"2025-11-10T20:58:21.139881Z","level":"INFO","fields":{"message":"Building site on port 5444."},"target":"simple_site_builder::builder"}
+{"timestamp":"2025-11-10T20:58:21.144904Z","level":"INFO","fields":{"message":"Initial Pass: Loading File List..."},"target":"simple_site_builder::builder"}
+{"timestamp":"2025-11-10T20:58:21.145916Z","level":"INFO","fields":{"message":"Initial Pass: Copying files..."},"target":"simple_site_builder::builder"}
+{"timestamp":"2025-11-10T20:58:21.153333Z","level":"INFO","fields":{"message":"Initial Pass: Transform Files..."},"target":"simple_site_builder::builder"}
+{"timestamp":"2025-11-10T20:58:21.153697Z","level":"INFO","fields":{"message":"Loading JSONs."},"target":"simple_site_builder::builder"}
+{"timestamp":"2025-11-10T20:58:21.154775Z","level":"INFO","fields":{"message":"Output Pass: Loading File List..."},"target":"simple_site_builder::builder"}
+{"timestamp":"2025-11-10T20:58:21.154989Z","level":"INFO","fields":{"message":"Initial Pass: Copying files..."},"target":"simple_site_builder::builder"}
+{"timestamp":"2025-11-10T20:58:21.157566Z","level":"INFO","fields":{"message":"Initial Pass: Transform Files..."},"target":"simple_site_builder::builder"}
+{"timestamp":"2025-11-10T20:58:21.157809Z","level":"INFO","fields":{"message":"Loading JSONs."},"target":"simple_site_builder::builder"}
+{"timestamp":"2025-11-10T20:58:21.160142Z","level":"INFO","fields":{"message":"Build complete. Reloading browser on port 5444."},"target":"simple_site_builder::builder"}
