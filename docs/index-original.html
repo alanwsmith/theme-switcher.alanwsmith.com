@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <!-- 01 START: Color Scheme <head> Code -->
+    <script>
+      function currentSchemer() {
+        const schemer = localStorage.getItem('schemer')
+        if (schemer) {
+          return schemer
+        } else {
+          return hasSystem() ? "auto" : "light"
+        }
+      }
+      function prefersDark() {
+        return window.matchMedia("(prefers-color-scheme: dark)").matches
+      }
+      function prefersLight() {
+        return window.matchMedia("(prefers-color-scheme: light)").matches
+      }
+      function hasSystem() {
+        return prefersDark() || prefersLight() ? true : false
+      }
+      function currentScheme() {
+        if (currentSchemer() === "auto") {
+          return prefersDark() ? "dark" : "light"
+        } else {
+          return currentSchemer()
+        }
+      }
+      const startSheet = document.createElement("style")
+      if (currentScheme() === "dark") {
+        startSheet.innerHTML = `body { 
+          background-color: oklch(16.009% 0.03076 39.927); 
+        } 
+        html { 
+          visibility: hidden; 
+        }`
+      } else if (currentScheme() === "black") {
+        startSheet.innerHTML = `body { 
+          background-color: black; 
+        } 
+        html { 
+          visibility: hidden; 
+        }`
+      } else if (currentScheme() === "white") {
+        startSheet.innerHTML = `body { 
+          background-color: white; 
+        } 
+        html { 
+          visibility: hidden; 
+        }`
+      } else {
+        startSheet.innerHTML = `body { 
+            background-color: oklch(93.076% 0.03467 92.999); 
+          } 
+          html { 
+            visibility: hidden; 
+          }`
+      }
+      document.head.appendChild(startSheet)
+    </script>
+    <noscript>
+      <style>
+        body { 
+          background-color: oklch(93.076% 0.03467 92.999); 
+        } 
+        html { 
+          visibility: hidden; 
+        }
+      </style>
+    </noscript>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link 
+      rel="preload" 
+      href="https://fonts.gstatic.com/s/afacadflux/v1/9oRdNYYQryMlneUPykRmTuH4ET0fri4I5rJVT_C8EIgoZFamLA.woff2" 
+      as="font" 
+      type="font/woff" 
+      crossorigin />
+    <link rel="preload" href="/styles/theme.css" as="style" />
+    <script src="/scripts/theme.js" defer></script>
+    <!-- 01 END: Color Scheme <head> Code -->
+
+    <!-- 02 START: Misc <head> metadata stuff -->
+    <meta charset="UTF-8" />
+    <title>Vanilla JavaScript Color Scheme Switcher</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="Vanilla JavaScript Color Scheme Switcher" />
+    <meta property="og:description" content="a post from alan w. smith" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://color-scheme-switcher.alanwsmith.com" />
+    <meta property="og:image" content="https://color-scheme-switcher.alanwsmith.com/images/og-image.jpg" />
+    <meta name="description" content="A prototype dark/light mode color scheme switcher written with vanilla javascript.">
+    <!-- 02 END: Misc <head> metadata stuff -->
+</head>
+<body>
+
+    <header class="wrapper">
+    <!-- 03 START: Color Scheme Switcher Lines -->
+    <link rel="stylesheet" href="/styles/theme.css" />
+    <div class="scheme-switcher"></div>
+    <!-- 03 END: Color Scheme Switcher Lines -->
+    </header>
+
+    <!-- 04 START: Main Content -->
+    <main class="wrapper flow">
+      <h1>Vanilla JavaScript Color Scheme Switcher</h1>
+      <h2>Introduction</h2>
+      <p>This page is a prototype for making a dark/light mode color scheme switcher
+        that prevents flashes of unstyled content (FOUC) and loading blink as much as possible. 
+        I'm doing a full write up 
+        as well that I'll published when everything is finalized. 
+      </p>
+      <h2>Goals</h2>
+      <ol>
+        <li>Use Vanilla JavaScript that can be used with static site generators</li>
+        <li>Save the user's preferred scheme between visits</li>
+        <li>Avoid Flash Of Unstyled Content (FOUC) as much as possible</li>
+        <li>Avoid browser flash when loading a new page as much as possible</li>
+        <li>Prevent the Firefox console message &quot;<em>Layout was forced before the page was fully loaded. If stylesheets are not yet loaded this may cause a flash of unstyled content.</em>&quot; as much as possible</li>
+        <li>Only show color scheme picker if JavaScript is enabled</li>
+        <li>Only show 'auto' button if there is data for it</li>
+        <li>Default to light mode color scheme if JavaScript is not enabled</li>
+        <li>Provide for multiple instances of the switcher that stay in sync</li>
+        <li>Update the <code>color-scheme</code> CSS property to style form controls, etc...</li>
+      </ol>
+      <h2>Files</h2>
+      <p>The source code for this site is on GitHub at:</p>
+      <p><a href="https://github.com/alanwsmith/color-scheme-switcher.alanwsmith.com" target="_blank">https://github.com/alanwsmith/color-scheme-switcher.alanwsmith.com</a></p>
+      <p>The individual files are:</p>
+      <ul>
+        <li><a href="https://raw.githubusercontent.com/alanwsmith/color-scheme-switcher.alanwsmith.com/refs/heads/main/docs/index.html" target="_blank">/index.html</a></li>
+        <li><a href="https://raw.githubusercontent.com/alanwsmith/color-scheme-switcher.alanwsmith.com/refs/heads/main/docs/scripts/theme.js" target="_blank">/scripts/theme.js</a></li>
+        <li><a href="https://raw.githubusercontent.com/alanwsmith/color-scheme-switcher.alanwsmith.com/refs/heads/main/docs/styles/theme.css" target="_blank">/styles/theme.css</a></li>
+      </ul>
+      <h2>Converter</h2>
+      <p><a href="/vs-code-converter.html">VS Code Theme Converter</a></p>
+
+    </main>
+    <footer class="wrapper">
+      <div class="scheme-switcher"></div>
+      <div class="tag-line">from <a href="https://www.alanwsmith.com/">alan w smith</a></div>
+    </footer>
+    <!-- 04 END: Main Content -->
+
+    <!-- 05 START: Backup visibility trigger -->
+    <noscript>
+      <style>html { visibility: visible; }</style>
+    </noscript>
+    <!-- 05 END: Backup visibility trigger -->
+
+</body>
+</html>

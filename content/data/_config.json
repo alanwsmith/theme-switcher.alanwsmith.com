@@ -1,6 +1,6 @@
 {
   "site": {
-    "description": "",
+    "description": "a work in progress color theme switcher",
     "domain_without_trailing_slash": "www.alanwsmith.com",
     "favicon_root": "/favicons",
     "github_url": "https://github.com/alanwsmith/",
