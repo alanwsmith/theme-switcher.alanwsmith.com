@@ -1,0 +1,26 @@
+:root {
+  --dark--background-color: black ;
+  --dark--color: white;
+  --light--background-color: slategray;
+  --light--color: black;
+  --hc-background-color: black;
+  --hc--color: yellow;
+}
+
+:root {
+  --background-color: var(--light--background-color);
+  --color: var(--light--color);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: var(--dark--background-color);
+    --color: var(--dark--color);
+  }
+}
+
+body {
+  background-color: var(--background-color--switch, var(--background-color));
+  color: var(--color--switch, var(--color));
+}
+

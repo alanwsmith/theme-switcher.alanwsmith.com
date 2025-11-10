@@ -1,0 +1,11 @@
+<script>
+  const styleKeys = [`background-color`, `color`];
+  const theme = localStorage.getItem("theme");
+  if (theme) {
+      styleKeys.forEach((styleKey) => {
+      document.documentElement.style.setProperty(
+        `--${style}--switch`, `var(--${theme}--${style})`
+      );
+    })
+  }
+</script>

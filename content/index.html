@@ -3,6 +3,8 @@
   <head>
     [! include "_wrappers/_head.html" !]
     [! include "styles/_main.html" !]
+    <link rel="stylesheet" href="/styles/theme-colors.css" />
+    [! include "_includes/theme-loader.html" !]
   </head>
   <body>
     <div>
@@ -24,9 +26,13 @@
         <hgroup>
           <h1>Color Scheme Switcher</h1>
         </hgroup>
-        <p>This page has moved, it's now at:<br /> <a href="https://theme-switcher.alanwsmith.com/">theme-switcher.alanwsmith.com</a></p>
+        
+        [! include "_includes/theme-switcher.html" !]
+
       </main>
       [! include "_wrappers/_footer.html" !]
     </div>
+
+    <script src="/components/bitty-4.0.0-rc1.full.js"></script>
   </body>
 </html>
