@@ -1870,16 +1870,25 @@ hgroup {
 }
 </style>    <link rel="stylesheet" href="/styles/theme-colors.css" />
 <script>
-  const styleKeys = [`background-color`, `color`];
-  const theme = localStorage.getItem("theme");
-  if (theme) {
-      styleKeys.forEach((styleKey) => {
-      document.documentElement.style.setProperty(
-        `--${style}--switch`, `var(--${theme}--${style})`
-      );
-    })
+  function updateStyles(theme) {
+    const styleKeys = [`a`, `background-color`, `color`];
+    styleKeys.forEach((styleKey) => {
+      const key = `--${styleKey}--switch`;
+      if (theme === "auto") {
+        document.documentElement.style.removeProperty(key);
+      } else {
+        const value = `var(--${theme}--${styleKey})`;
+        document.documentElement.style.setProperty(key, value);
+      }
+    });
+    localStorage.setItem("theme", theme);
   }
-</script>  </head>
+  const theme = localStorage.getItem("theme");
+  if (theme) { 
+    updateStyles(theme);
+  }
+</script>
+  </head>
   <body>
     <div>
 <noscript>
@@ -1897,31 +1906,38 @@ hgroup {
       </header>
       <main class="default-wrapper">
         <hgroup>
-          <h1>Color Scheme Switcher</h1>
+          <h1>Page Theme Switcher</h1>
         </hgroup>
         
-<bitty-4-0 data-connect="/scripts/page.js">
+        <p>This is how I'm doing my color mode/theme switcher.</p>
+
+        <h2>Demo</h2>
+        <p>Here's the live example</p>
+<bitty-4-0 
+  data-connect="/scripts/page.js"k
+  data-send="initTheme"
+  >
   <div>
     <label>
-      <input type="radio" name="mode" data-param="auto" data-send="changeTheme" data-receive="initValue" /> 
+      <input type="radio" name="mode" value="auto" data-send="changeTheme" data-receive="initTheme" /> 
         Auto
     </label>
   </div>
   <div>
     <label>
-      <input type="radio" name="mode" data-param="light" data-send="changeTheme" data-receive="initValue" /> 
+      <input type="radio" name="mode" value="light" data-send="changeTheme" data-receive="initTheme" /> 
       Light
     </label>
   </div>
   <div>
     <label>
-      <input type="radio" name="mode" data-param="dark" data-send="changeTheme" data-receive="initValue" /> 
+      <input type="radio" name="mode" value="dark" data-send="changeTheme" data-receive="initTheme" /> 
       Dark
     </label>
   </div>
   <div>
     <label>
-      <input type="radio" name="mode" data-param="hc" data-send="changeTheme" data-receive="initValue" /> 
+      <input type="radio" name="mode" value="hc" data-send="changeTheme" data-receive="initTheme" /> 
       High Contrast
     </label>
   </div>

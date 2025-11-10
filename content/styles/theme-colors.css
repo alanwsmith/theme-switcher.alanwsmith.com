@@ -1,26 +1,43 @@
 :root {
+  --dark--a: blue;
   --dark--background-color: black ;
   --dark--color: white;
+  --light--a: red;
   --light--background-color: slategray;
   --light--color: black;
+  --hc-a: green;
   --hc-background-color: black;
   --hc--color: yellow;
 }
 
 :root {
+  --a: var(--light--a);
   --background-color: var(--light--background-color);
   --color: var(--light--color);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --a: var(--dark--a);
     --background-color: var(--dark--background-color);
     --color: var(--dark--color);
   }
 }
 
 body {
-  background-color: var(--background-color--switch, var(--background-color));
-  color: var(--color--switch, var(--color));
+  a {
+    color: var(
+      --a--switch,
+      var(--a)
+    );
+  }
+  background-color: var(
+    --background-color--switch, 
+    var(--background-color)
+  );
+  color: var(
+    --color--switch, 
+    var(--color)
+  );
 }
 
