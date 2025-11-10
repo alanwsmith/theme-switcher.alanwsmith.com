@@ -1868,7 +1868,49 @@ hgroup {
   color: var(--default-faded);
   border-bottom: var(--accent-border);
 }
-</style>    <link rel="stylesheet" href="/styles/theme-colors.css" />
+</style>
+<style>
+:root {
+  --dark--a: blue;
+  --dark--background-color: black ;
+  --dark--color: white;
+  --light--a: red;
+  --light--background-color: slategray;
+  --light--color: black;
+  --hc--a: green;
+  --hc--background-color: black;
+  --hc--color: yellow;
+}
+:root {
+  --a: var(--light--a);
+  --background-color: var(--light--background-color);
+  --color: var(--light--color);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --a: var(--dark--a);
+    --background-color: var(--dark--background-color);
+    --color: var(--dark--color);
+  }
+}
+body {
+  a {
+    color: var(
+      --a--switch,
+      var(--a)
+    );
+  }
+  background-color: var(
+    --background-color--switch, 
+    var(--background-color)
+  );
+  color: var(
+    --color--switch, 
+    var(--color)
+  );
+}
+</style>
+    
 <script>
   function updateStyles(theme) {
     const styleKeys = [`a`, `background-color`, `color`];
@@ -1942,6 +1984,18 @@ hgroup {
     </label>
   </div>
 </bitty-4-0>
+        <h2>Overview</h2>
+        <p>The process I'm using breaks down like this</p>
+        <ol>
+          <li>Create individual CSS Custom Property/Variables for each theme.</li>
+          <li>Create light and dark mode variables that point to the individual variables for each theme</li>
+          <li>Create element styles that call `--switch` variables that don't initially exist 
+            with fallbacks to the mode specific variables</li>
+          <li>If JavaScript is available use it to populate the `--switch` variables
+            based of user selections on the page</li>
+        </ol>
+
+
       </main>
 <footer>
   <div class="small-font">

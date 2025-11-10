@@ -1,0 +1,17 @@
+body {
+  a {
+    color: var(
+      --a--switch,
+      var(--a)
+    );
+  }
+  background-color: var(
+    --background-color--switch, 
+    var(--background-color)
+  );
+  color: var(
+    --color--switch, 
+    var(--color)
+  );
+}
+
