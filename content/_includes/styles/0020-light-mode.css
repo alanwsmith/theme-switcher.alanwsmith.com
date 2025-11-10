@@ -1,0 +1,6 @@
+:root {
+  --a: var(--light--a);
+  --background-color: var(--light--background-color);
+  --color: var(--light--color);
+}
+

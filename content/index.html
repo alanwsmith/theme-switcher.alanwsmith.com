@@ -3,7 +3,14 @@
   <head>
     [! include "_wrappers/_head.html" !]
     [! include "styles/_main.html" !]
-    <link rel="stylesheet" href="/styles/theme-colors.css" />
+
+<style>
+  [! include "_includes/styles/0010-colors.css" !]
+  [! include "_includes/styles/0020-light-mode.css" !]
+  [! include "_includes/styles/0030-dark-mode.css" !]
+  [! include "_includes/styles/0040-body.css" !]
+</style>
+    
     [! include "_includes/theme-loader.html" !]
   </head>
   <body>
@@ -32,6 +39,18 @@
         <h2>Demo</h2>
         <p>Here's the live example</p>
         [! include "_includes/theme-switcher.html" !]
+
+        <h2>Overview</h2>
+        <p>The process I'm using breaks down like this</p>
+        <ol>
+          <li>Create individual CSS Custom Property/Variables for each theme.</li>
+          <li>Create light and dark mode variables that point to the individual variables for each theme</li>
+          <li>Create element styles that call `--switch` variables that don't initially exist 
+            with fallbacks to the mode specific variables</li>
+          <li>If JavaScript is available use it to populate the `--switch` variables
+            based of user selections on the page</li>
+        </ol>
+
 
       </main>
       [! include "_wrappers/_footer.html" !]
