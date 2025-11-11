@@ -1,10 +1,10 @@
 {
   "site": {
-    "description": "a work in progress color theme switcher",
-    "domain_without_trailing_slash": "www.alanwsmith.com",
+    "description": "my page color theme switcher",
+    "domain_without_trailing_slash": "theme-switcher.alanwsmith.com",
     "favicon_root": "/favicons",
-    "github_url": "https://github.com/alanwsmith/",
-    "og_image_rel_path": "/images/og-image.jpg",
-    "title": ""
+    "github_url": "https://github.com/alanwsmith/theme-switcher.alanwsmith.com",
+    "og_image_rel_path": "/images/og-image-2.jpg",
+    "title": "Page Theme Switcher"
   }
 }

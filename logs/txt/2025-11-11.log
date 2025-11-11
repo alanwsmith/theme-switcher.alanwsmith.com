@@ -15406,3 +15406,51 @@ Loading JSONs.
 #####
 Build complete. Reloading browser on port 5445.
   at: 2025-11-11T19:11:00.785670Z|I|src/builder/mod.rs|82
+#####
+Initilizing
+  at: 2025-11-11T19:37:30.562181Z|I|src/bin/ssb-0-8.rs|28
+#####
+Found port for web server: 5445
+  at: 2025-11-11T19:37:30.562300Z|I|src/bin/ssb-0-8.rs|31
+#####
+Starting watcher
+  at: 2025-11-11T19:37:30.562343Z|I|src/watcher/mod.rs|27
+#####
+Starting web server
+  at: 2025-11-11T19:37:30.562401Z|I|src/server/mod.rs|28
+#####
+Starting builder
+  at: 2025-11-11T19:37:30.562414Z|I|src/builder/mod.rs|176
+#####
+Building site on port 5445.
+  at: 2025-11-11T19:37:30.562460Z|I|src/builder/mod.rs|48
+#####
+obtaining pathset [3mconfig_pathset[0m[2m=[0m[WatchedPath { path: "content", recursive: true }, WatchedPath { path: "support", recursive: true }]
+  at: 2025-11-11T19:37:30.562510Z|I|/Users/alan/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/watchexec-8.0.1/src/sources/fs.rs|159
+#####
+Initial Pass: Loading File List...
+  at: 2025-11-11T19:37:30.566102Z|I|src/builder/mod.rs|51
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:37:30.567753Z|I|src/builder/mod.rs|54
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:37:30.575412Z|I|src/builder/mod.rs|60
+#####
+Loading JSONs.
+  at: 2025-11-11T19:37:30.575973Z|I|src/builder/mod.rs|198
+#####
+Output Pass: Loading File List...
+  at: 2025-11-11T19:37:30.623751Z|I|src/builder/mod.rs|66
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:37:30.624184Z|I|src/builder/mod.rs|69
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:37:30.628691Z|I|src/builder/mod.rs|75
+#####
+Loading JSONs.
+  at: 2025-11-11T19:37:30.629067Z|I|src/builder/mod.rs|198
+#####
+Build complete. Reloading browser on port 5445.
+  at: 2025-11-11T19:37:30.632357Z|I|src/builder/mod.rs|82
