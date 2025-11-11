@@ -657,6 +657,16 @@ font-weight: bold;
 }
 }
 
+:root {
+  /* Alignment Variables */
+  --align-center: center;
+  --align-end: end;
+  --align-justify: justify;
+  --align-left: left;
+  --align-right: right;
+  --align-start: start;
+}
+
 /* Line Heights */
 .default-line-height { line-height: var(--default-line-height); }
 .large-line-height { line-height: var(--large-line-height); }
@@ -814,6 +824,15 @@ pre {
   font-size: var(--small-font);
 }
 
+/* Alignments */
+.align-center { text-align: var(--align-center); }
+.align-end { text-align: var(--align-end); }
+.align-justify { text-align: var(--align-justify); }
+.align-left { text-align: var(--align-left); }
+.align-right { text-align: var(--align-right); }
+.align-start { text-align: var(--align-start); }
+.nowrap { white-space: nowrap; }
+
 hgroup {
   margin-top: var(--large-margin);
   padding-bottom: var(--large-padding);
@@ -826,6 +845,16 @@ hgroup {
 
 [data-receive=themeSwitcher] {
   border: 1px solid white;
+}
+
+footer {
+  color: var(--default-faded);
+  font-size: var(--small-font);
+  margin-bottom: var(--default-margin);
+  margin-inline: auto;
+  margin-top: var(--xlarge-margin);
+  text-align: var(--align-center);
+  width: var(--default-width);
 }</style>
 <style>
 :root {
@@ -1349,7 +1378,8 @@ hgroup {
     <a href="https://links.alanwsmith.com/">other projects</a> ~
     <a href="https://www.alanwsmith.com/feeds/posts.xml">rss</a>
   </div>
-</footer>
+</footer>      <div class="align-center"><a href="/debug/">debug</a></div>
+
     </bitty-5-1>
 
     <script src="/components/bitty-5.1.0.min.js"></script>

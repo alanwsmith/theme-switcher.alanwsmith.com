@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Theme Switcher Example</title>
+    <meta charset="UTF-8" />
+    <meta 
+      name="viewport" 
+      content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/example-styles.css" />
+    <script>
+      function updateStyles(theme) {
+        if (theme) {
+          const styleKeys = [`background`, `color`, `link`];
+          styleKeys.forEach((styleKey) => {
+            const key = `--${styleKey}--switch`;
+            if (theme === "auto") {
+              document.documentElement.style.removeProperty(key);
+            } else {
+              const value = `var(--${theme}--${styleKey})`;
+              document.documentElement.style.setProperty(
+                key, value
+              );
+            }
+          });
+          localStorage.setItem("theme", theme);
+        }
+      }
+      updateStyles(localStorage.getItem("theme"));
+    </script>
+  </head>
+  <body>
+    <bitty-5-1 
+      data-connect="/scripts/debug.js"
+      data-send="themeSwitcher">
+
+      <a href="/">Home page</a>
+      <h1>Debugging</h1>
+      <button data-send="clearLocalStorage">Clear Local Storage</button>
+      <div data-receive="clearLocalStorage">waiting</div>
+
+    </bitty-5-1>
+    <script src="/components/bitty-5.1.0.min.js"></script>
+  </body>
+</html>
+
