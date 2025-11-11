@@ -5,7 +5,6 @@
     [! include "styles/_main.html" !]
 
 <style>
-
 :root {
   --load-hider: 0;
 }
@@ -56,15 +55,11 @@
           <h1>Page Theme Switcher</h1>
         </hgroup>
         
-        <p>
-          This is how I'm doing my color mode/theme/scheme switcher.
-        </p>
-
-        <h2>Live Example</h2>
-        <div data-location="middle" data-receive="themeSwitcher"></div>
 
         <h2>Overview</h2>
-        <p>The process I'm using breaks down like this:</p>
+        <p>
+          This is how I'm doing my color mode/theme/scheme switcher:
+        </p>
         <ol>
           <li>Create individual CSS Custom Property/Variables for each theme. I'm using three ('light', 'dark', and 'high-contrast'), but you can make as many as you'd like.</li>
           <li>Create light and dark mode variables that point to the individual variables for each theme. (Nothing is done with 'high-contrast' at this stage as it's only set by JavaScript). </li>
@@ -86,6 +81,9 @@
           the styles fall back to the non-customized
           version. 
         </p>
+
+        <h2>Live Example</h2>
+        <div data-location="middle" data-receive="themeSwitcher"></div>
 
         <h2>Details</h2>
 
