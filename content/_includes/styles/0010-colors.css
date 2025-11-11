@@ -1,12 +1,12 @@
-:root {
-  --dark--a: blue;
-  --dark--background-color: black;
-  --dark--color: white;
-  --hc--a: green;
-  --hc--background-color: black;
-  --hc--color: yellow;
-  --light--a: red;
-  --light--background-color: slategray;
-  --light--color: black;
-}
+      :root {
+        --dark--link: blue;
+        --dark--background: black;
+        --dark--color: white;
+        --hc--link: green;
+        --hc--background: black;
+        --hc--color: yellow;
+        --light--link: goldenrod;
+        --light--background: slategray;
+        --light--color: black;
+      }
 

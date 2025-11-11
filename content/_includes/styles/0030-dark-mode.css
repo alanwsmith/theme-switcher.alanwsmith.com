@@ -1,8 +1,8 @@
-@media (prefers-color-scheme: dark) {
-  :root {
-    --a: var(--dark--a);
-    --background-color: var(--dark--background-color);
-    --color: var(--dark--color);
-  }
-}
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --link: var(--dark--link);
+          --background: var(--dark--background);
+          --color: var(--dark--color);
+        }
+      }
 

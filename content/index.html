@@ -35,10 +35,7 @@
         </hgroup>
         
         <p>
-          This is how I'm doing my color mode/theme switcher.
-          (This isn't a great write-up at the moment. Hopefully,
-          the code is clear enough that that isn't too much 
-          of a problem.)
+          This is how I'm doing my color mode/theme/scheme switcher.
         </p>
 
         <h2>Live Example</h2>
@@ -48,13 +45,25 @@
         <p>The process I'm using breaks down like this:</p>
         <ol>
           <li>Create individual CSS Custom Property/Variables for each theme.</li>
-          <li>Create light and dark mode variables that point to the individual variables for each theme</li>
+          <li>Create light and dark mode variables that point to the individual variables for each theme.</li>
           <li>Create element styles that call `--switch` variables that don't initially exist 
-            with fallbacks to the mode specific variables</li>
+            with fallbacks to the mode specific variables.</li>
           <li>Add a script tag to the head of the document that uses 
             JavaScript (if it's available) to populate the `--switch` variables
-            based of user selections on the page</li>
+            based of user selections on the page.</li>
         </ol>
+
+        <p>
+          The result is a progressively enhanced theme
+          setup. JavaScript is used to set the theme
+          if everything is functional. Values fall
+          back to the `prefers-color-scheme` if JavaScript
+          is either unavailable or if no manual 
+          preference has been set. If the 
+          `prefers-color-scheme` value isn't found
+          the styles fall back to the non-customized
+          version. 
+        </p>
 
         <h2>Details</h2>
 
@@ -145,6 +154,66 @@
           Since the theme switcher doesn't work
           without JavaScript, I use this for
           my HTML:</p>
+
+            <pre class="code-block">[!- filter highlight_html|safe -!]
+              [!- include "_includes/theme-switcher.html" -!]
+              [!- endfilter -!]</pre>
+
+        <p>
+          And then this in the `/scripts/theme-switcher.js` file:
+        </p>
+
+            <pre class="code-block">[!- filter highlight_javascript|safe -!]
+              [!- include "scripts/theme-switcher.js" -!]
+              [!- endfilter -!]</pre>
+
+
+        <h2>Full Example</h2>
+        <p>
+          Here's a full HTML page to show how
+          everything looks when combined that
+          you can <a href="/full-example/">check out here</a>.
+        </p>
+
+      <pre class="code-block">[!- filter highlight_html|safe -!]
+        [!- include "full-example/index.html" -!]
+        [!- endfilter -!]</pre>
+
+
+      <h2>Notes</h2>
+        <ul>
+          <li>
+            Some folks have Strong Opinions about putting 
+            inline script tags on pages. I like
+            the approach here because it helps ensure
+            there's no flash between colors when
+            a color is found/set on the JavaScript
+            side. 
+          </li>
+          <li>
+            This approach requires explicitly listing
+            all the keys for the styles you want
+            to change (e.g. `background`, `color`,
+            `link`). Another approach would be 
+            to loop through all the properties
+            and do a find/replace style update. 
+            That <a href="https://tylergaw.com/blog/how-to-get-all-custom-properties-on-a-page-in-javascript/">
+              ends up being a lot more code</a>.
+            I may switch to that at some point,
+            but I don't have that many updates
+            to my site where I need to 
+            adjust what styles are getting updated. 
+          </li>
+          
+          <li>
+            You can
+            <a href="https://bitty.alanwsmith.com/">go here to learn more about the bitty web component</a>
+            if you're interested. It adds interactivity 
+            to pages through a single file.
+          </li>
+
+        </ul>
+
 
       </main>
       [! include "_wrappers/_footer.html" !]
