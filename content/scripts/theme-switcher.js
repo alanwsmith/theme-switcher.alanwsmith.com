@@ -10,7 +10,7 @@ const tmpl = `<div><label>
     name="mode" 
     value="KEY" 
     data-send="changeTheme" 
-    data-receive="initOption" /> 
+    data-receive="setInitialOption" /> 
   NAME 
 </label></div>`;
 
@@ -21,7 +21,7 @@ export default class {
     }
   }
 
-  initOption(_event, el) {
+  setInitialOption(_event, el) {
     let theme = localStorage.getItem("theme");
     if (!theme) {
       theme = "auto";
@@ -31,16 +31,16 @@ export default class {
     }
   }
 
-  async loadSwitcher(_event, el) {
+  async loadSwitcher(event, _el) {
     for (let theme of themes) {
       const subs = [
         ["KEY", theme[0]],
         ["NAME", theme[1]]
       ];
       const option = this.api.makeElement(tmpl, subs);
-      await el.appendChild(option);
+      await event.target.appendChild(option);
     }
-    this.api.forward(null, "initOption");
+    this.api.forward(null, "setInitialOption");
   }
 };
 
