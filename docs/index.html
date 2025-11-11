@@ -1967,10 +1967,10 @@ hgroup {
         <ol>
           <li>Create individual CSS Custom Property/Variables for each theme.</li>
           <li>Create light and dark mode variables that point to the individual variables for each theme.</li>
-          <li>Create element styles that call `--switch` variables that don't initially exist 
+          <li>Create element styles that call `*--switch` variables that don't initially exist 
             with fallbacks to the mode specific variables.</li>
           <li>Add a script tag to the head of the document that uses 
-            JavaScript (if it's available) to populate the `--switch` variables
+            JavaScript (if it's available) to populate the `*--switch` variables
             based of user selections on the page.</li>
         </ol>
 
@@ -2029,7 +2029,7 @@ hgroup {
 <span class="line-marker"></span>      <span class="punctuation section property-list css">}</span></span></pre>
           </li>
           <li>
-            <p>Page element styles that set to use `--switch` variables
+            <p>Page element styles that set to use `*--switch` variables
               (that don't exist yet) with fallbacks to the 
               basic variable names. </p>
             <pre class="code-block"><span class="line-marker"></span><span class="source css"><span class="meta selector css">      <span class="entity name tag css">a</span> </span><span class="meta property-list css"><span class="punctuation section property-list css">{</span>
@@ -2078,7 +2078,7 @@ hgroup {
           function. The <code>styleKeys</code> array inside it
           defines the list of styles to update based off the
           naming the naming convention that maps the base
-          colors to the <code>--switch</code> versions. 
+          colors to the <code>*--switch</code> versions. 
         </p>
         <p>
           If the theme passed to the function is <code>auto</code>,
@@ -2302,6 +2302,14 @@ hgroup {
             to my site where I need to 
             adjust what styles are getting updated. 
           </li>
+          <li>
+            I'm nod doing anything with `color-scheme: light dark;`
+            in this example. I still need to dig
+            into it to figure out how to make
+            it reactive to JavaScript when
+            that's what sets the theme. 
+          </li>
+
           
           <li>
             You can
