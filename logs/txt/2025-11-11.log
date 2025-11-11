@@ -14788,3 +14788,621 @@ Loading JSONs.
 #####
 Build complete. Reloading browser on port 5445.
   at: 2025-11-11T18:54:25.527934Z|I|src/builder/mod.rs|82
+#####
+Initilizing
+  at: 2025-11-11T19:01:54.095166Z|I|src/bin/ssb-0-8.rs|28
+#####
+Found port for web server: 5445
+  at: 2025-11-11T19:01:54.095254Z|I|src/bin/ssb-0-8.rs|31
+#####
+Starting watcher
+  at: 2025-11-11T19:01:54.095277Z|I|src/watcher/mod.rs|27
+#####
+Starting web server
+  at: 2025-11-11T19:01:54.095292Z|I|src/server/mod.rs|28
+#####
+Starting builder
+  at: 2025-11-11T19:01:54.095320Z|I|src/builder/mod.rs|176
+#####
+Building site on port 5445.
+  at: 2025-11-11T19:01:54.095338Z|I|src/builder/mod.rs|48
+#####
+obtaining pathset [3mconfig_pathset[0m[2m=[0m[WatchedPath { path: "content", recursive: true }, WatchedPath { path: "support", recursive: true }]
+  at: 2025-11-11T19:01:54.095396Z|I|/Users/alan/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/watchexec-8.0.1/src/sources/fs.rs|159
+#####
+Initial Pass: Loading File List...
+  at: 2025-11-11T19:01:54.098216Z|I|src/builder/mod.rs|51
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:01:54.099057Z|I|src/builder/mod.rs|54
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:01:54.105147Z|I|src/builder/mod.rs|60
+#####
+Loading JSONs.
+  at: 2025-11-11T19:01:54.105564Z|I|src/builder/mod.rs|198
+#####
+Output Pass: Loading File List...
+  at: 2025-11-11T19:01:54.152900Z|I|src/builder/mod.rs|66
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:01:54.153204Z|I|src/builder/mod.rs|69
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:01:54.156827Z|I|src/builder/mod.rs|75
+#####
+Loading JSONs.
+  at: 2025-11-11T19:01:54.157134Z|I|src/builder/mod.rs|198
+#####
+Build complete. Reloading browser on port 5445.
+  at: 2025-11-11T19:01:54.160384Z|I|src/builder/mod.rs|82
+#####
+Building site on port 5445.
+  at: 2025-11-11T19:02:12.267665Z|I|src/builder/mod.rs|48
+#####
+Initial Pass: Loading File List...
+  at: 2025-11-11T19:02:12.275171Z|I|src/builder/mod.rs|51
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:02:12.276467Z|I|src/builder/mod.rs|54
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:02:12.290803Z|I|src/builder/mod.rs|60
+#####
+Loading JSONs.
+  at: 2025-11-11T19:02:12.291800Z|I|src/builder/mod.rs|198
+#####
+Output Pass: Loading File List...
+  at: 2025-11-11T19:02:12.336567Z|I|src/builder/mod.rs|66
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:02:12.336870Z|I|src/builder/mod.rs|69
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:02:12.339928Z|I|src/builder/mod.rs|75
+#####
+Loading JSONs.
+  at: 2025-11-11T19:02:12.340225Z|I|src/builder/mod.rs|198
+#####
+Build complete. Reloading browser on port 5445.
+  at: 2025-11-11T19:02:12.343265Z|I|src/builder/mod.rs|82
+#####
+Building site on port 5445.
+  at: 2025-11-11T19:02:27.582348Z|I|src/builder/mod.rs|48
+#####
+Initial Pass: Loading File List...
+  at: 2025-11-11T19:02:27.587316Z|I|src/builder/mod.rs|51
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:02:27.588628Z|I|src/builder/mod.rs|54
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:02:27.608031Z|I|src/builder/mod.rs|60
+#####
+Loading JSONs.
+  at: 2025-11-11T19:02:27.608445Z|I|src/builder/mod.rs|198
+#####
+Output Pass: Loading File List...
+  at: 2025-11-11T19:02:27.652991Z|I|src/builder/mod.rs|66
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:02:27.653278Z|I|src/builder/mod.rs|69
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:02:27.655953Z|I|src/builder/mod.rs|75
+#####
+Loading JSONs.
+  at: 2025-11-11T19:02:27.656266Z|I|src/builder/mod.rs|198
+#####
+Build complete. Reloading browser on port 5445.
+  at: 2025-11-11T19:02:27.659303Z|I|src/builder/mod.rs|82
+#####
+Building site on port 5445.
+  at: 2025-11-11T19:02:49.067388Z|I|src/builder/mod.rs|48
+#####
+Initial Pass: Loading File List...
+  at: 2025-11-11T19:02:49.075169Z|I|src/builder/mod.rs|51
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:02:49.075671Z|I|src/builder/mod.rs|54
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:02:49.081922Z|I|src/builder/mod.rs|60
+#####
+Loading JSONs.
+  at: 2025-11-11T19:02:49.082361Z|I|src/builder/mod.rs|198
+#####
+Output Pass: Loading File List...
+  at: 2025-11-11T19:02:49.126725Z|I|src/builder/mod.rs|66
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:02:49.127024Z|I|src/builder/mod.rs|69
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:02:49.129846Z|I|src/builder/mod.rs|75
+#####
+Loading JSONs.
+  at: 2025-11-11T19:02:49.130125Z|I|src/builder/mod.rs|198
+#####
+Build complete. Reloading browser on port 5445.
+  at: 2025-11-11T19:02:49.133144Z|I|src/builder/mod.rs|82
+#####
+Building site on port 5445.
+  at: 2025-11-11T19:02:55.651623Z|I|src/builder/mod.rs|48
+#####
+Initial Pass: Loading File List...
+  at: 2025-11-11T19:02:55.656876Z|I|src/builder/mod.rs|51
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:02:55.658243Z|I|src/builder/mod.rs|54
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:02:55.667868Z|I|src/builder/mod.rs|60
+#####
+Loading JSONs.
+  at: 2025-11-11T19:02:55.668973Z|I|src/builder/mod.rs|198
+#####
+Output Pass: Loading File List...
+  at: 2025-11-11T19:02:55.714606Z|I|src/builder/mod.rs|66
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:02:55.714894Z|I|src/builder/mod.rs|69
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:02:55.717535Z|I|src/builder/mod.rs|75
+#####
+Loading JSONs.
+  at: 2025-11-11T19:02:55.717798Z|I|src/builder/mod.rs|198
+#####
+Build complete. Reloading browser on port 5445.
+  at: 2025-11-11T19:02:55.720809Z|I|src/builder/mod.rs|82
+#####
+Building site on port 5445.
+  at: 2025-11-11T19:03:01.978545Z|I|src/builder/mod.rs|48
+#####
+Initial Pass: Loading File List...
+  at: 2025-11-11T19:03:01.988709Z|I|src/builder/mod.rs|51
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:03:01.990107Z|I|src/builder/mod.rs|54
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:03:01.998280Z|I|src/builder/mod.rs|60
+#####
+Loading JSONs.
+  at: 2025-11-11T19:03:01.999232Z|I|src/builder/mod.rs|198
+#####
+Output Pass: Loading File List...
+  at: 2025-11-11T19:03:02.041410Z|I|src/builder/mod.rs|66
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:03:02.041698Z|I|src/builder/mod.rs|69
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:03:02.044180Z|I|src/builder/mod.rs|75
+#####
+Loading JSONs.
+  at: 2025-11-11T19:03:02.044434Z|I|src/builder/mod.rs|198
+#####
+Build complete. Reloading browser on port 5445.
+  at: 2025-11-11T19:03:02.047354Z|I|src/builder/mod.rs|82
+#####
+Building site on port 5445.
+  at: 2025-11-11T19:03:56.844203Z|I|src/builder/mod.rs|48
+#####
+Initial Pass: Loading File List...
+  at: 2025-11-11T19:03:56.850606Z|I|src/builder/mod.rs|51
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:03:56.851153Z|I|src/builder/mod.rs|54
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:03:56.857261Z|I|src/builder/mod.rs|60
+#####
+Loading JSONs.
+  at: 2025-11-11T19:03:56.857640Z|I|src/builder/mod.rs|198
+#####
+Output Pass: Loading File List...
+  at: 2025-11-11T19:03:56.901768Z|I|src/builder/mod.rs|66
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:03:56.902075Z|I|src/builder/mod.rs|69
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:03:56.904860Z|I|src/builder/mod.rs|75
+#####
+Loading JSONs.
+  at: 2025-11-11T19:03:56.905129Z|I|src/builder/mod.rs|198
+#####
+Build complete. Reloading browser on port 5445.
+  at: 2025-11-11T19:03:56.908010Z|I|src/builder/mod.rs|82
+#####
+Building site on port 5445.
+  at: 2025-11-11T19:04:00.052446Z|I|src/builder/mod.rs|48
+#####
+Initial Pass: Loading File List...
+  at: 2025-11-11T19:04:00.057816Z|I|src/builder/mod.rs|51
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:04:00.059086Z|I|src/builder/mod.rs|54
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:04:00.067144Z|I|src/builder/mod.rs|60
+#####
+Loading JSONs.
+  at: 2025-11-11T19:04:00.068175Z|I|src/builder/mod.rs|198
+#####
+Output Pass: Loading File List...
+  at: 2025-11-11T19:04:00.114416Z|I|src/builder/mod.rs|66
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:04:00.114705Z|I|src/builder/mod.rs|69
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:04:00.117039Z|I|src/builder/mod.rs|75
+#####
+Loading JSONs.
+  at: 2025-11-11T19:04:00.117292Z|I|src/builder/mod.rs|198
+#####
+Build complete. Reloading browser on port 5445.
+  at: 2025-11-11T19:04:00.120314Z|I|src/builder/mod.rs|82
+#####
+Building site on port 5445.
+  at: 2025-11-11T19:05:13.194230Z|I|src/builder/mod.rs|48
+#####
+Initial Pass: Loading File List...
+  at: 2025-11-11T19:05:13.196387Z|I|src/builder/mod.rs|51
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:05:13.196922Z|I|src/builder/mod.rs|54
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:05:13.203106Z|I|src/builder/mod.rs|60
+#####
+Loading JSONs.
+  at: 2025-11-11T19:05:13.203500Z|I|src/builder/mod.rs|198
+#####
+Output Pass: Loading File List...
+  at: 2025-11-11T19:05:13.249075Z|I|src/builder/mod.rs|66
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:05:13.249444Z|I|src/builder/mod.rs|69
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:05:13.252154Z|I|src/builder/mod.rs|75
+#####
+Loading JSONs.
+  at: 2025-11-11T19:05:13.252438Z|I|src/builder/mod.rs|198
+#####
+Build complete. Reloading browser on port 5445.
+  at: 2025-11-11T19:05:13.255669Z|I|src/builder/mod.rs|82
+#####
+Building site on port 5445.
+  at: 2025-11-11T19:05:49.325028Z|I|src/builder/mod.rs|48
+#####
+Initial Pass: Loading File List...
+  at: 2025-11-11T19:05:49.326996Z|I|src/builder/mod.rs|51
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:05:49.327631Z|I|src/builder/mod.rs|54
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:05:49.333963Z|I|src/builder/mod.rs|60
+#####
+Loading JSONs.
+  at: 2025-11-11T19:05:49.334341Z|I|src/builder/mod.rs|198
+#####
+Output Pass: Loading File List...
+  at: 2025-11-11T19:05:49.378631Z|I|src/builder/mod.rs|66
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:05:49.378955Z|I|src/builder/mod.rs|69
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:05:49.382984Z|I|src/builder/mod.rs|75
+#####
+Loading JSONs.
+  at: 2025-11-11T19:05:49.383261Z|I|src/builder/mod.rs|198
+#####
+Build complete. Reloading browser on port 5445.
+  at: 2025-11-11T19:05:49.386521Z|I|src/builder/mod.rs|82
+#####
+Building site on port 5445.
+  at: 2025-11-11T19:06:08.735225Z|I|src/builder/mod.rs|48
+#####
+Initial Pass: Loading File List...
+  at: 2025-11-11T19:06:08.740830Z|I|src/builder/mod.rs|51
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:06:08.742173Z|I|src/builder/mod.rs|54
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:06:08.755948Z|I|src/builder/mod.rs|60
+#####
+Loading JSONs.
+  at: 2025-11-11T19:06:08.756995Z|I|src/builder/mod.rs|198
+#####
+Output Pass: Loading File List...
+  at: 2025-11-11T19:06:08.803972Z|I|src/builder/mod.rs|66
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:06:08.804316Z|I|src/builder/mod.rs|69
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:06:08.807224Z|I|src/builder/mod.rs|75
+#####
+Loading JSONs.
+  at: 2025-11-11T19:06:08.807501Z|I|src/builder/mod.rs|198
+#####
+Build complete. Reloading browser on port 5445.
+  at: 2025-11-11T19:06:08.810554Z|I|src/builder/mod.rs|82
+#####
+Building site on port 5445.
+  at: 2025-11-11T19:08:15.761103Z|I|src/builder/mod.rs|48
+#####
+Initial Pass: Loading File List...
+  at: 2025-11-11T19:08:15.766281Z|I|src/builder/mod.rs|51
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:08:15.767665Z|I|src/builder/mod.rs|54
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:08:15.779321Z|I|src/builder/mod.rs|60
+#####
+Loading JSONs.
+  at: 2025-11-11T19:08:15.779765Z|I|src/builder/mod.rs|198
+#####
+Output Pass: Loading File List...
+  at: 2025-11-11T19:08:15.824685Z|I|src/builder/mod.rs|66
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:08:15.824989Z|I|src/builder/mod.rs|69
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:08:15.827453Z|I|src/builder/mod.rs|75
+#####
+Loading JSONs.
+  at: 2025-11-11T19:08:15.827757Z|I|src/builder/mod.rs|198
+#####
+Build complete. Reloading browser on port 5445.
+  at: 2025-11-11T19:08:15.830968Z|I|src/builder/mod.rs|82
+#####
+Building site on port 5445.
+  at: 2025-11-11T19:09:18.915854Z|I|src/builder/mod.rs|48
+#####
+Initial Pass: Loading File List...
+  at: 2025-11-11T19:09:18.925615Z|I|src/builder/mod.rs|51
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:09:18.927862Z|I|src/builder/mod.rs|54
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:09:18.946036Z|I|src/builder/mod.rs|60
+#####
+Loading JSONs.
+  at: 2025-11-11T19:09:18.946539Z|I|src/builder/mod.rs|198
+#####
+Output Pass: Loading File List...
+  at: 2025-11-11T19:09:18.988124Z|I|src/builder/mod.rs|66
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:09:18.988443Z|I|src/builder/mod.rs|69
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:09:18.991462Z|I|src/builder/mod.rs|75
+#####
+Loading JSONs.
+  at: 2025-11-11T19:09:18.991733Z|I|src/builder/mod.rs|198
+#####
+Build complete. Reloading browser on port 5445.
+  at: 2025-11-11T19:09:18.995236Z|I|src/builder/mod.rs|82
+#####
+Building site on port 5445.
+  at: 2025-11-11T19:09:41.709730Z|I|src/builder/mod.rs|48
+#####
+Initial Pass: Loading File List...
+  at: 2025-11-11T19:09:41.716022Z|I|src/builder/mod.rs|51
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:09:41.717484Z|I|src/builder/mod.rs|54
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:09:41.728917Z|I|src/builder/mod.rs|60
+#####
+Loading JSONs.
+  at: 2025-11-11T19:09:41.730548Z|I|src/builder/mod.rs|198
+#####
+Output Pass: Loading File List...
+  at: 2025-11-11T19:09:41.776813Z|I|src/builder/mod.rs|66
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:09:41.777113Z|I|src/builder/mod.rs|69
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:09:41.780053Z|I|src/builder/mod.rs|75
+#####
+Loading JSONs.
+  at: 2025-11-11T19:09:41.780349Z|I|src/builder/mod.rs|198
+#####
+Build complete. Reloading browser on port 5445.
+  at: 2025-11-11T19:09:41.783643Z|I|src/builder/mod.rs|82
+#####
+Building site on port 5445.
+  at: 2025-11-11T19:10:01.865177Z|I|src/builder/mod.rs|48
+#####
+Initial Pass: Loading File List...
+  at: 2025-11-11T19:10:01.873960Z|I|src/builder/mod.rs|51
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:10:01.875863Z|I|src/builder/mod.rs|54
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:10:01.884796Z|I|src/builder/mod.rs|60
+#####
+Loading JSONs.
+  at: 2025-11-11T19:10:01.885678Z|I|src/builder/mod.rs|198
+#####
+Output Pass: Loading File List...
+  at: 2025-11-11T19:10:01.928027Z|I|src/builder/mod.rs|66
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:10:01.928404Z|I|src/builder/mod.rs|69
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:10:01.931179Z|I|src/builder/mod.rs|75
+#####
+Loading JSONs.
+  at: 2025-11-11T19:10:01.931457Z|I|src/builder/mod.rs|198
+#####
+Build complete. Reloading browser on port 5445.
+  at: 2025-11-11T19:10:01.934604Z|I|src/builder/mod.rs|82
+#####
+Building site on port 5445.
+  at: 2025-11-11T19:10:12.670242Z|I|src/builder/mod.rs|48
+#####
+Initial Pass: Loading File List...
+  at: 2025-11-11T19:10:12.676601Z|I|src/builder/mod.rs|51
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:10:12.677902Z|I|src/builder/mod.rs|54
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:10:12.687009Z|I|src/builder/mod.rs|60
+#####
+Loading JSONs.
+  at: 2025-11-11T19:10:12.688050Z|I|src/builder/mod.rs|198
+#####
+Output Pass: Loading File List...
+  at: 2025-11-11T19:10:12.732375Z|I|src/builder/mod.rs|66
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:10:12.732689Z|I|src/builder/mod.rs|69
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:10:12.735580Z|I|src/builder/mod.rs|75
+#####
+Loading JSONs.
+  at: 2025-11-11T19:10:12.735887Z|I|src/builder/mod.rs|198
+#####
+Build complete. Reloading browser on port 5445.
+  at: 2025-11-11T19:10:12.739145Z|I|src/builder/mod.rs|82
+#####
+Building site on port 5445.
+  at: 2025-11-11T19:10:21.022276Z|I|src/builder/mod.rs|48
+#####
+Initial Pass: Loading File List...
+  at: 2025-11-11T19:10:21.027432Z|I|src/builder/mod.rs|51
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:10:21.028783Z|I|src/builder/mod.rs|54
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:10:21.037651Z|I|src/builder/mod.rs|60
+#####
+Loading JSONs.
+  at: 2025-11-11T19:10:21.038654Z|I|src/builder/mod.rs|198
+#####
+Output Pass: Loading File List...
+  at: 2025-11-11T19:10:21.082680Z|I|src/builder/mod.rs|66
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:10:21.082984Z|I|src/builder/mod.rs|69
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:10:21.085590Z|I|src/builder/mod.rs|75
+#####
+Loading JSONs.
+  at: 2025-11-11T19:10:21.085888Z|I|src/builder/mod.rs|198
+#####
+Build complete. Reloading browser on port 5445.
+  at: 2025-11-11T19:10:21.088816Z|I|src/builder/mod.rs|82
+#####
+Building site on port 5445.
+  at: 2025-11-11T19:10:29.915177Z|I|src/builder/mod.rs|48
+#####
+Initial Pass: Loading File List...
+  at: 2025-11-11T19:10:29.921338Z|I|src/builder/mod.rs|51
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:10:29.923044Z|I|src/builder/mod.rs|54
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:10:29.926417Z|I|src/builder/mod.rs|60
+#####
+Loading JSONs.
+  at: 2025-11-11T19:10:29.926863Z|I|src/builder/mod.rs|198
+#####
+Output Pass: Loading File List...
+  at: 2025-11-11T19:10:29.971580Z|I|src/builder/mod.rs|66
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:10:29.971845Z|I|src/builder/mod.rs|69
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:10:29.975564Z|I|src/builder/mod.rs|75
+#####
+Loading JSONs.
+  at: 2025-11-11T19:10:29.975829Z|I|src/builder/mod.rs|198
+#####
+Build complete. Reloading browser on port 5445.
+  at: 2025-11-11T19:10:29.978899Z|I|src/builder/mod.rs|82
+#####
+Building site on port 5445.
+  at: 2025-11-11T19:10:46.523023Z|I|src/builder/mod.rs|48
+#####
+Initial Pass: Loading File List...
+  at: 2025-11-11T19:10:46.535712Z|I|src/builder/mod.rs|51
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:10:46.537097Z|I|src/builder/mod.rs|54
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:10:46.545357Z|I|src/builder/mod.rs|60
+#####
+Loading JSONs.
+  at: 2025-11-11T19:10:46.545794Z|I|src/builder/mod.rs|198
+#####
+Output Pass: Loading File List...
+  at: 2025-11-11T19:10:46.587803Z|I|src/builder/mod.rs|66
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:10:46.588093Z|I|src/builder/mod.rs|69
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:10:46.590829Z|I|src/builder/mod.rs|75
+#####
+Loading JSONs.
+  at: 2025-11-11T19:10:46.591149Z|I|src/builder/mod.rs|198
+#####
+Build complete. Reloading browser on port 5445.
+  at: 2025-11-11T19:10:46.594601Z|I|src/builder/mod.rs|82
+#####
+Building site on port 5445.
+  at: 2025-11-11T19:11:00.720798Z|I|src/builder/mod.rs|48
+#####
+Initial Pass: Loading File List...
+  at: 2025-11-11T19:11:00.726168Z|I|src/builder/mod.rs|51
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:11:00.727567Z|I|src/builder/mod.rs|54
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:11:00.736243Z|I|src/builder/mod.rs|60
+#####
+Loading JSONs.
+  at: 2025-11-11T19:11:00.736776Z|I|src/builder/mod.rs|198
+#####
+Output Pass: Loading File List...
+  at: 2025-11-11T19:11:00.779056Z|I|src/builder/mod.rs|66
+#####
+Initial Pass: Copying files...
+  at: 2025-11-11T19:11:00.779380Z|I|src/builder/mod.rs|69
+#####
+Initial Pass: Transform Files...
+  at: 2025-11-11T19:11:00.782183Z|I|src/builder/mod.rs|75
+#####
+Loading JSONs.
+  at: 2025-11-11T19:11:00.782460Z|I|src/builder/mod.rs|198
+#####
+Build complete. Reloading browser on port 5445.
+  at: 2025-11-11T19:11:00.785670Z|I|src/builder/mod.rs|82
