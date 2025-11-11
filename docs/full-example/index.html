@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Theme Switcher Example</title>
@@ -6,90 +6,45 @@
     <meta 
       name="viewport" 
       content="width=device-width, initial-scale=1.0" />
-    <style>
-      :root {
-        --dark--link: blue;
-        --dark--background: black;
-        --dark--color: white;
-        --hc--link: green;
-        --hc--background: black;
-        --hc--color: yellow;
-        --light--link: goldenrod;
-        --light--background: slategray;
-        --light--color: black;
-      }
-
-      :root {
-        --link: var(--light--link);
-        --background: var(--light--background);
-        --color: var(--light--color);
-      }
-
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --link: var(--dark--link);
-          --background: var(--dark--background);
-          --color: var(--dark--color);
-        }
-      }
-
-      a {
-        color: var(--link--switch, var(--link));
-      }
-
-      body {
-        background-color: 
-          var(--background--switch, var(--background));
-        color: var(--color--switch, var(--color));
-      }
-    </style>
+    <link rel="stylesheet" href="/styles/example-styles.css" />
 
     <script>
       function updateStyles(theme) {
-        const styleKeys = [`background`, `color`, `link`];
-        styleKeys.forEach((styleKey) => {
-          const key = `--${styleKey}--switch`;
-          if (theme === "auto") {
-            document.documentElement.style.removeProperty(key);
-          } else {
-            const value = `var(--${theme}--${styleKey})`;
-            document.documentElement.style.setProperty(
-              key, value
-            );
-          }
-        });
-        localStorage.setItem("theme", theme);
+        if (theme) {
+          const styleKeys = [`background`, `color`, `link`];
+          styleKeys.forEach((styleKey) => {
+            const key = `--${styleKey}--switch`;
+            if (theme === "auto") {
+              document.documentElement.style.removeProperty(key);
+            } else {
+              const value = `var(--${theme}--${styleKey})`;
+              document.documentElement.style.setProperty(
+                key, value
+              );
+            }
+          });
+          localStorage.setItem("theme", theme);
+        }
       }
-
-      const theme = localStorage.getItem("theme");
-
-      if (theme) { 
-        updateStyles(theme);
-      }
+      updateStyles(localStorage.getItem("theme"));
     </script>
 
   </head>
   <body>
-    <header>
-      <a href="/">Home page</a>
-    </header>
-    <main>
-      <h1>Theme Switcher Example</h1>
+    <bitty-5-1 
+      data-connect="/scripts/theme-switcher.js"
+      data-send="themeSwitcher">
 
-      <bitty-5-0 
-        data-connect="/scripts/theme-switcher.js"k
-        data-send="loadSwitcher">
-      </bitty-5-0>
+      <header>
+        <a href="/">Home page</a>
+      </header>
 
-      <p>
-        This is an example with. The styles 
-        would normally be moved to a separate 
-        file. They are included directly on the 
-        page here to make things easier to 
-        follow.
-      </p>
-    </main>
+      <main>
+        <h1>Theme Switcher Example</h1>
+        <div data-location="bottom" data-receive="themeSwitcher"></div>
+      </main>
 
-    <script src="/components/bitty-5.0.0.min.js"></script>
+    </bitty-5-1>
+    <script src="/components/bitty-5.1.0.min.js"></script>
   </body>
 </html>

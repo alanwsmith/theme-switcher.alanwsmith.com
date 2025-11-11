@@ -24,3 +24,7 @@ hgroup {
   color: var(--default-faded);
   border-bottom: var(--accent-border);
 }
+
+[data-receive=themeSwitcher] {
+  border: 1px solid white;
+}
