@@ -7,12 +7,16 @@
         document.documentElement.style.removeProperty(key);
       } else {
         const value = `var(--${theme}--${styleKey})`;
-        document.documentElement.style.setProperty(key, value);
+        document.documentElement.style.setProperty(
+          key, value
+        );
       }
     });
     localStorage.setItem("theme", theme);
   }
+
   const theme = localStorage.getItem("theme");
+
   if (theme) { 
     updateStyles(theme);
   }

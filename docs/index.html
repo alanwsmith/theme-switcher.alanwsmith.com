@@ -1872,14 +1872,14 @@ hgroup {
 <style>
 :root {
   --dark--a: blue;
-  --dark--background-color: black ;
+  --dark--background-color: black;
   --dark--color: white;
-  --light--a: red;
-  --light--background-color: slategray;
-  --light--color: black;
   --hc--a: green;
   --hc--background-color: black;
   --hc--color: yellow;
+  --light--a: red;
+  --light--background-color: slategray;
+  --light--color: black;
 }
 :root {
   --a: var(--light--a);
@@ -1920,12 +1920,16 @@ body {
         document.documentElement.style.removeProperty(key);
       } else {
         const value = `var(--${theme}--${styleKey})`;
-        document.documentElement.style.setProperty(key, value);
+        document.documentElement.style.setProperty(
+          key, value
+        );
       }
     });
     localStorage.setItem("theme", theme);
   }
+
   const theme = localStorage.getItem("theme");
+
   if (theme) { 
     updateStyles(theme);
   }
@@ -1951,15 +1955,21 @@ body {
           <h1>Page Theme Switcher</h1>
         </hgroup>
         
-        <p>This is how I'm doing my color mode/theme switcher.</p>
+        <p>
+          This is how I'm doing my color mode/theme switcher.
+          (This isn't a great write-up at the moment. Hopefully,
+          the code is clear enough that that isn't too much 
+          of a problem.)
+        </p>
 
-        <h2>Demo</h2>
-        <p>Here's the live example</p>
-<bitty-4-0 
-  data-connect="/scripts/page.js"k
-  data-send="initTheme"
+        <h2>Live Example</h2>
+<bitty-5-0 
+  data-connect="/scripts/theme-switcher.js"k
+  data-send="loadSwitcher"
   >
-  <div>
+  <div data-receive="loadSwitcher"></div>
+
+  <!--
     <label>
       <input type="radio" name="mode" value="auto" data-send="changeTheme" data-receive="initTheme" /> 
         Auto
@@ -1983,18 +1993,157 @@ body {
       High Contrast
     </label>
   </div>
-</bitty-4-0>
+-->
+
+</bitty-5-0>
         <h2>Overview</h2>
-        <p>The process I'm using breaks down like this</p>
+        <p>The process I'm using breaks down like this:</p>
         <ol>
           <li>Create individual CSS Custom Property/Variables for each theme.</li>
           <li>Create light and dark mode variables that point to the individual variables for each theme</li>
           <li>Create element styles that call `--switch` variables that don't initially exist 
             with fallbacks to the mode specific variables</li>
-          <li>If JavaScript is available use it to populate the `--switch` variables
+          <li>Add a script tag to the head of the document that uses 
+            JavaScript (if it's available) to populate the `--switch` variables
             based of user selections on the page</li>
         </ol>
 
+        <h2>Details</h2>
+
+        <h3>Style Sheet</h3>
+        <p>My style sheet breaks down into four sections:</p>
+
+        <ol>
+          <li>
+            <p>The base color variables for each theme</p>
+            <pre class="code-block"><span class="line-marker"></span><span class="source css"><span class="meta selector css"><span class="entity other pseudo-class css"><span class="punctuation definition entity css">:</span>root</span> </span><span class="meta property-list css"><span class="punctuation section property-list css">{</span>
+<span class="line-marker"></span>  <span class="meta property-name css"><span class="support type custom-property css"><span class="punctuation definition custom-property css">--</span><span class="support type custom-property name css">dark--a</span></span></span><span class="punctuation separator key-value css">:</span><span class="meta property-value css"> </span><span class="meta property-value css"><span class="support constant color w3c-standard-color-name css">blue</span></span><span class="punctuation terminator rule css">;</span>
+<span class="line-marker"></span>  <span class="meta property-name css"><span class="support type custom-property css"><span class="punctuation definition custom-property css">--</span><span class="support type custom-property name css">dark--background-color</span></span></span><span class="punctuation separator key-value css">:</span><span class="meta property-value css"> </span><span class="meta property-value css"><span class="support constant color w3c-standard-color-name css">black</span></span><span class="punctuation terminator rule css">;</span>
+<span class="line-marker"></span>  <span class="meta property-name css"><span class="support type custom-property css"><span class="punctuation definition custom-property css">--</span><span class="support type custom-property name css">dark--color</span></span></span><span class="punctuation separator key-value css">:</span><span class="meta property-value css"> </span><span class="meta property-value css"><span class="support constant color w3c-standard-color-name css">white</span></span><span class="punctuation terminator rule css">;</span>
+<span class="line-marker"></span>  <span class="meta property-name css"><span class="support type custom-property css"><span class="punctuation definition custom-property css">--</span><span class="support type custom-property name css">hc--a</span></span></span><span class="punctuation separator key-value css">:</span><span class="meta property-value css"> </span><span class="meta property-value css"><span class="support constant color w3c-standard-color-name css">green</span></span><span class="punctuation terminator rule css">;</span>
+<span class="line-marker"></span>  <span class="meta property-name css"><span class="support type custom-property css"><span class="punctuation definition custom-property css">--</span><span class="support type custom-property name css">hc--background-color</span></span></span><span class="punctuation separator key-value css">:</span><span class="meta property-value css"> </span><span class="meta property-value css"><span class="support constant color w3c-standard-color-name css">black</span></span><span class="punctuation terminator rule css">;</span>
+<span class="line-marker"></span>  <span class="meta property-name css"><span class="support type custom-property css"><span class="punctuation definition custom-property css">--</span><span class="support type custom-property name css">hc--color</span></span></span><span class="punctuation separator key-value css">:</span><span class="meta property-value css"> </span><span class="meta property-value css"><span class="support constant color w3c-standard-color-name css">yellow</span></span><span class="punctuation terminator rule css">;</span>
+<span class="line-marker"></span>  <span class="meta property-name css"><span class="support type custom-property css"><span class="punctuation definition custom-property css">--</span><span class="support type custom-property name css">light--a</span></span></span><span class="punctuation separator key-value css">:</span><span class="meta property-value css"> </span><span class="meta property-value css"><span class="support constant color w3c-standard-color-name css">red</span></span><span class="punctuation terminator rule css">;</span>
+<span class="line-marker"></span>  <span class="meta property-name css"><span class="support type custom-property css"><span class="punctuation definition custom-property css">--</span><span class="support type custom-property name css">light--background-color</span></span></span><span class="punctuation separator key-value css">:</span><span class="meta property-value css"> </span><span class="meta property-value css"><span class="support constant color w3c-extended-color-keywords css">slategray</span></span><span class="punctuation terminator rule css">;</span>
+<span class="line-marker"></span>  <span class="meta property-name css"><span class="support type custom-property css"><span class="punctuation definition custom-property css">--</span><span class="support type custom-property name css">light--color</span></span></span><span class="punctuation separator key-value css">:</span><span class="meta property-value css"> </span><span class="meta property-value css"><span class="support constant color w3c-standard-color-name css">black</span></span><span class="punctuation terminator rule css">;</span>
+<span class="line-marker"></span></span><span class="punctuation section property-list css">}</span></span></pre>
+          </li>
+          <li>
+            <p>
+              Default variables set to use the primary `--light``
+              variables</p>
+            <pre class="code-block"><span class="line-marker"></span><span class="source css"><span class="meta selector css"><span class="entity other pseudo-class css"><span class="punctuation definition entity css">:</span>root</span> </span><span class="meta property-list css"><span class="punctuation section property-list css">{</span>
+<span class="line-marker"></span>  <span class="meta property-name css"><span class="support type custom-property css"><span class="punctuation definition custom-property css">--</span><span class="support type custom-property name css">a</span></span></span><span class="punctuation separator key-value css">:</span><span class="meta property-value css"> </span><span class="meta property-value css"><span class="meta function-call css"><span class="support function var css">var</span><span class="meta group css"><span class="punctuation definition group begin css">(</span><span class="support type custom-property css"><span class="punctuation definition custom-property css">--</span><span class="support type custom-property name css">light--a</span></span></span><span class="meta group css"><span class="punctuation definition group end css">)</span></span></span></span><span class="punctuation terminator rule css">;</span>
+<span class="line-marker"></span>  <span class="meta property-name css"><span class="support type custom-property css"><span class="punctuation definition custom-property css">--</span><span class="support type custom-property name css">background-color</span></span></span><span class="punctuation separator key-value css">:</span><span class="meta property-value css"> </span><span class="meta property-value css"><span class="meta function-call css"><span class="support function var css">var</span><span class="meta group css"><span class="punctuation definition group begin css">(</span><span class="support type custom-property css"><span class="punctuation definition custom-property css">--</span><span class="support type custom-property name css">light--background-color</span></span></span><span class="meta group css"><span class="punctuation definition group end css">)</span></span></span></span><span class="punctuation terminator rule css">;</span>
+<span class="line-marker"></span>  <span class="meta property-name css"><span class="support type custom-property css"><span class="punctuation definition custom-property css">--</span><span class="support type custom-property name css">color</span></span></span><span class="punctuation separator key-value css">:</span><span class="meta property-value css"> </span><span class="meta property-value css"><span class="meta function-call css"><span class="support function var css">var</span><span class="meta group css"><span class="punctuation definition group begin css">(</span><span class="support type custom-property css"><span class="punctuation definition custom-property css">--</span><span class="support type custom-property name css">light--color</span></span></span><span class="meta group css"><span class="punctuation definition group end css">)</span></span></span></span><span class="punctuation terminator rule css">;</span>
+<span class="line-marker"></span></span><span class="punctuation section property-list css">}</span></span></pre>
+          </li>
+          <li>
+            <p>
+              Dark mode variables set to use the primary `--dark``
+              variables</p>
+            <pre class="code-block"><span class="line-marker"></span><span class="source css"><span class="meta at-rule media css"><span class="keyword control at-rule media css"><span class="punctuation definition keyword css">@</span>media</span> <span class="punctuation definition group begin css">(</span>prefers-<span class="support type property-name media css">color</span>-scheme<span class="punctuation separator key-value css">:</span> dark<span class="punctuation definition group end css">)</span> </span><span class="punctuation section property-list css">{</span>
+<span class="line-marker"></span><span class="meta selector css">  <span class="entity other pseudo-class css"><span class="punctuation definition entity css">:</span>root</span> </span><span class="meta property-list css"><span class="punctuation section property-list css">{</span>
+<span class="line-marker"></span>    <span class="meta property-name css"><span class="support type custom-property css"><span class="punctuation definition custom-property css">--</span><span class="support type custom-property name css">a</span></span></span><span class="punctuation separator key-value css">:</span><span class="meta property-value css"> </span><span class="meta property-value css"><span class="meta function-call css"><span class="support function var css">var</span><span class="meta group css"><span class="punctuation definition group begin css">(</span><span class="support type custom-property css"><span class="punctuation definition custom-property css">--</span><span class="support type custom-property name css">dark--a</span></span></span><span class="meta group css"><span class="punctuation definition group end css">)</span></span></span></span><span class="punctuation terminator rule css">;</span>
+<span class="line-marker"></span>    <span class="meta property-name css"><span class="support type custom-property css"><span class="punctuation definition custom-property css">--</span><span class="support type custom-property name css">background-color</span></span></span><span class="punctuation separator key-value css">:</span><span class="meta property-value css"> </span><span class="meta property-value css"><span class="meta function-call css"><span class="support function var css">var</span><span class="meta group css"><span class="punctuation definition group begin css">(</span><span class="support type custom-property css"><span class="punctuation definition custom-property css">--</span><span class="support type custom-property name css">dark--background-color</span></span></span><span class="meta group css"><span class="punctuation definition group end css">)</span></span></span></span><span class="punctuation terminator rule css">;</span>
+<span class="line-marker"></span>    <span class="meta property-name css"><span class="support type custom-property css"><span class="punctuation definition custom-property css">--</span><span class="support type custom-property name css">color</span></span></span><span class="punctuation separator key-value css">:</span><span class="meta property-value css"> </span><span class="meta property-value css"><span class="meta function-call css"><span class="support function var css">var</span><span class="meta group css"><span class="punctuation definition group begin css">(</span><span class="support type custom-property css"><span class="punctuation definition custom-property css">--</span><span class="support type custom-property name css">dark--color</span></span></span><span class="meta group css"><span class="punctuation definition group end css">)</span></span></span></span><span class="punctuation terminator rule css">;</span>
+<span class="line-marker"></span></span>  <span class="punctuation section property-list css">}</span>
+<span class="line-marker"></span><span class="punctuation section property-list css">}</span></span></pre>
+          </li>
+          <li>
+            <p>Page element styles that set to use `--switch` variables
+              (that don't exist yet) with fallbacks to the 
+              basic variable names. </p>
+            <pre class="code-block"><span class="line-marker"></span><span class="source css"><span class="meta selector css"><span class="entity name tag css">body</span> </span><span class="meta property-list css"><span class="punctuation section property-list css">{</span>
+<span class="line-marker"></span>  <span class="meta property-name css">a</span> {
+<span class="line-marker"></span>    <span class="meta property-name css"><span class="support type property-name css">color</span></span><span class="punctuation separator key-value css">:</span><span class="meta property-value css"> </span><span class="meta property-value css"><span class="meta function-call css"><span class="support function var css">var</span><span class="meta group css"><span class="punctuation definition group begin css">(</span>
+<span class="line-marker"></span>      <span class="support type custom-property css"><span class="punctuation definition custom-property css">--</span><span class="support type custom-property name css">a--switch</span></span><span class="punctuation separator css">,</span>
+<span class="line-marker"></span>      var(<span class="support type custom-property css"><span class="punctuation definition custom-property css">--</span><span class="support type custom-property name css">a</span></span></span><span class="meta group css"><span class="punctuation definition group end css">)</span></span></span>
+<span class="line-marker"></span>    </span>);
+<span class="line-marker"></span></span>  <span class="punctuation section property-list css">}</span>
+<span class="line-marker"></span><span class="meta selector css">  <span class="entity name tag custom css">background-color</span>: <span class="entity name tag css">var</span>(
+<span class="line-marker"></span>    --<span class="entity name tag custom css">background-color--switch</span>, 
+<span class="line-marker"></span>    <span class="entity name tag css">var</span>(--<span class="entity name tag custom css">background-color</span></span>)
+<span class="line-marker"></span>  );
+<span class="line-marker"></span><span class="meta selector css">  color: <span class="entity name tag css">var</span>(
+<span class="line-marker"></span>    --<span class="entity name tag custom css">color--switch</span>, 
+<span class="line-marker"></span>    <span class="entity name tag css">var</span>(--color</span>)
+<span class="line-marker"></span>  );
+<span class="line-marker"></span>}</span></pre>
+          </li>
+        </ol>
+
+        <h3>The JavaScript </h3>
+        <p>
+          This script tag goes directly in the &lt;head&gt; of the
+          page directly after the call for the stylesheet. 
+        </p>
+          <pre class="code-block"><span class="line-marker"></span><span class="text html basic"><span class="meta tag script begin html"><span class="punctuation definition tag begin html">&lt;</span><span class="entity name tag script html">script</span></span><span class="meta tag script begin html"><span class="punctuation definition tag end html">&gt;</span></span>
+<span class="line-marker"></span><span class="source js embedded html"><span class="source js">  <span class="meta function declaration js"><span class="storage type function js">function</span> <span class="entity name function js">updateStyles</span><span class="punctuation section group begin js">(</span><span class="variable parameter function js">theme</span><span class="punctuation section group end js">)</span><span class="meta function declaration js"> </span></span><span class="meta block js"><span class="punctuation section block js">{</span>
+<span class="line-marker"></span>    <span class="storage type js">const</span> <span class="variable other readwrite js">styleKeys</span> <span class="keyword operator assignment js">=</span> <span class="meta sequence js"><span class="punctuation section brackets js">[</span><span class="string template js"><span class="punctuation definition string template begin js">`</span>a<span class="punctuation definition string template end js">`</span></span><span class="punctuation separator comma js">,</span> <span class="string template js"><span class="punctuation definition string template begin js">`</span>background-color<span class="punctuation definition string template end js">`</span></span><span class="punctuation separator comma js">,</span> <span class="string template js"><span class="punctuation definition string template begin js">`</span>color<span class="punctuation definition string template end js">`</span></span><span class="punctuation section brackets js">]</span></span><span class="punctuation terminator statement js">;</span>
+<span class="line-marker"></span>    <span class="variable other object js">styleKeys</span><span class="punctuation accessor js">.</span><span class="meta function-call method js"><span class="variable function js">forEach</span><span class="meta group js"><span class="punctuation section group js">(</span><span class="meta function declaration js"><span class="punctuation section group begin js">(</span><span class="variable parameter function js">styleKey</span><span class="punctuation section group end js">)</span><span class="meta function declaration js"> </span><span class="storage type function arrow js">=&gt;</span></span> <span class="meta block js"><span class="punctuation section block js">{</span>
+<span class="line-marker"></span>      <span class="storage type js">const</span> <span class="variable other readwrite js">key</span> <span class="keyword operator assignment js">=</span> <span class="string template js"><span class="punctuation definition string template begin js">`</span>--</span><span class="meta template expression js"><span class="punctuation definition template-expression begin js">${</span></span><span class="meta template expression js"><span class="source js embedded expression"><span class="variable other readwrite js">styleKey</span></span><span class="punctuation definition template-expression end js">}</span></span><span class="string template js">--switch<span class="punctuation definition string template end js">`</span></span><span class="punctuation terminator statement js">;</span>
+<span class="line-marker"></span>      <span class="meta conditional js"><span class="keyword control conditional js">if</span> <span class="meta group js"><span class="punctuation section group js">(</span><span class="variable other readwrite js">theme</span> <span class="keyword operator comparison js">===</span> <span class="string quoted double js"><span class="punctuation definition string begin js">&quot;</span>auto<span class="punctuation definition string end js">&quot;</span></span><span class="punctuation section group js">)</span></span> <span class="meta block js"><span class="punctuation section block js">{</span>
+<span class="line-marker"></span>        <span class="support type object dom js">document</span><span class="punctuation accessor js">.</span><span class="meta property object js">documentElement</span><span class="punctuation accessor js">.</span><span class="meta property object js">style</span><span class="punctuation accessor js">.</span><span class="meta function-call method js"><span class="variable function js">removeProperty</span><span class="meta group js"><span class="punctuation section group js">(</span><span class="variable other readwrite js">key</span></span><span class="meta group js"><span class="punctuation section group js">)</span></span></span><span class="punctuation terminator statement js">;</span>
+<span class="line-marker"></span>      </span><span class="meta block js"><span class="punctuation section block js">}</span></span></span> <span class="meta conditional js"><span class="keyword control conditional js">else</span> <span class="meta block js"><span class="punctuation section block js">{</span>
+<span class="line-marker"></span>        <span class="storage type js">const</span> <span class="variable other readwrite js">value</span> <span class="keyword operator assignment js">=</span> <span class="string template js"><span class="punctuation definition string template begin js">`</span>var(--</span><span class="meta template expression js"><span class="punctuation definition template-expression begin js">${</span></span><span class="meta template expression js"><span class="source js embedded expression"><span class="variable other readwrite js">theme</span></span><span class="punctuation definition template-expression end js">}</span></span><span class="string template js">--</span><span class="meta template expression js"><span class="punctuation definition template-expression begin js">${</span></span><span class="meta template expression js"><span class="source js embedded expression"><span class="variable other readwrite js">styleKey</span></span><span class="punctuation definition template-expression end js">}</span></span><span class="string template js">)<span class="punctuation definition string template end js">`</span></span><span class="punctuation terminator statement js">;</span>
+<span class="line-marker"></span>        <span class="support type object dom js">document</span><span class="punctuation accessor js">.</span><span class="meta property object js">documentElement</span><span class="punctuation accessor js">.</span><span class="meta property object js">style</span><span class="punctuation accessor js">.</span><span class="meta function-call method js"><span class="variable function js">setProperty</span><span class="meta group js"><span class="punctuation section group js">(</span>
+<span class="line-marker"></span>          <span class="variable other readwrite js">key</span><span class="punctuation separator comma js">,</span> <span class="variable other readwrite js">value</span>
+<span class="line-marker"></span>        </span><span class="meta group js"><span class="punctuation section group js">)</span></span></span><span class="punctuation terminator statement js">;</span>
+<span class="line-marker"></span>      </span><span class="meta block js"><span class="punctuation section block js">}</span></span></span>
+<span class="line-marker"></span>    <span class="punctuation section block js">}</span></span></span><span class="meta group js"><span class="punctuation section group js">)</span></span></span><span class="punctuation terminator statement js">;</span>
+<span class="line-marker"></span>    <span class="variable other object js">localStorage</span><span class="punctuation accessor js">.</span><span class="meta function-call method js"><span class="variable function js">setItem</span><span class="meta group js"><span class="punctuation section group js">(</span><span class="string quoted double js"><span class="punctuation definition string begin js">&quot;</span>theme<span class="punctuation definition string end js">&quot;</span></span><span class="punctuation separator comma js">,</span> <span class="variable other readwrite js">theme</span></span><span class="meta group js"><span class="punctuation section group js">)</span></span></span><span class="punctuation terminator statement js">;</span>
+<span class="line-marker"></span>  <span class="punctuation section block js">}</span></span>
+<span class="line-marker"></span>
+<span class="line-marker"></span>  <span class="storage type js">const</span> <span class="variable other readwrite js">theme</span> <span class="keyword operator assignment js">=</span> <span class="variable other object js">localStorage</span><span class="punctuation accessor js">.</span><span class="meta function-call method js"><span class="variable function js">getItem</span><span class="meta group js"><span class="punctuation section group js">(</span><span class="string quoted double js"><span class="punctuation definition string begin js">&quot;</span>theme<span class="punctuation definition string end js">&quot;</span></span></span><span class="meta group js"><span class="punctuation section group js">)</span></span></span><span class="punctuation terminator statement js">;</span>
+<span class="line-marker"></span>
+<span class="line-marker"></span>  <span class="meta conditional js"><span class="keyword control conditional js">if</span> <span class="meta group js"><span class="punctuation section group js">(</span><span class="variable other readwrite js">theme</span><span class="punctuation section group js">)</span></span> <span class="meta block js"><span class="punctuation section block js">{</span> 
+<span class="line-marker"></span>    <span class="meta function-call js"><span class="variable function js">updateStyles</span><span class="meta group js"><span class="punctuation section group js">(</span><span class="variable other readwrite js">theme</span></span><span class="meta group js"><span class="punctuation section group js">)</span></span></span><span class="punctuation terminator statement js">;</span>
+<span class="line-marker"></span>  </span><span class="meta block js"><span class="punctuation section block js">}</span></span></span>
+<span class="line-marker"></span></span></span><span class="meta tag script end html"><span class="punctuation definition tag begin html">&lt;/</span><span class="entity name tag script html">script</span><span class="punctuation definition tag end html">&gt;</span></span></span></pre>
+
+        <p>
+          The first thing the script does is make the <code>updateStyles()</code>
+          function. The <code>styleKeys</code> array inside it
+          defines the list of styles to update based off the
+          naming the naming convention that maps the base
+          colors to the <code>--switch</code> versions. 
+        </p>
+        <p>
+          If the theme passed to the function is <code>auto</code>,
+          then it remove the custom <code>*--switch</code> properties. 
+          Otherwise, it adds them with the given theme name. 
+        </p>
+        <p>
+          After the function is made the script checks to see
+          if there's a localStorage value for the theme. 
+          If there is, it calls the function with it. 
+          Otherwise, nothing else happens.
+        </p>
+
+        <p>
+          The last thing the function does is to set
+          the localStorage value. Doing that means
+          all the storage checking and setting
+          happens in the same place. No need
+          to mess with it in whatever scripting
+          is used for the interface. 
+        </p>
+
+        <h3>The Interface</h3>
+        <p>
+          The last step is making an interface on the page.
+          I'm using <a href="https://bitty.alanwsmith.com/">bitty</a>,
+          but other approaches would work just as well. The 
+          only real requirement is calling the
+          <code>updateStyles()</code> function with
+          the name of the theme. 
+        </p>
+
+        <p>
+          Since the theme switcher doesn't work
+          without JavaScript, I use this for
+          my HTML:</p>
 
       </main>
 <footer>
@@ -2008,6 +2157,6 @@ body {
   </div>
 </footer>    </div>
 
-    <script src="/components/bitty-4.0.0-rc1.full.js"></script>
+    <script src="/components/bitty-5.0.0.min.js"></script>
   </body>
 </html>
