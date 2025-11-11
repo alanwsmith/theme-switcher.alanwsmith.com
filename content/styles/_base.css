@@ -1592,6 +1592,7 @@ footer {
   text-align: var(--align-center);
   width: var(--default-width);
 }
+
 h1 {
   color: var(--heading);
   border-bottom: var(--accent-border);
@@ -1637,6 +1638,7 @@ h6 {
   line-height: var(--xsmall-line-height);
   text-wrap: balance;
 }
+
 header {
   margin-bottom: var(--small-margin);
   margin-inline: auto;

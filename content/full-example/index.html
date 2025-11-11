@@ -7,23 +7,16 @@
       name="viewport" 
       content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles/example-styles.css" />
-
 [! include "_includes/theme-loader.html" !]
-
   </head>
   <body>
     <bitty-5-1 
       data-connect="/scripts/theme-switcher.js"
       data-send="themeSwitcher">
 
-      <header>
-        <a href="/">Home page</a>
-      </header>
-
-      <main>
-        <h1>Theme Switcher Example</h1>
-        <div data-location="bottom" data-receive="themeSwitcher"></div>
-      </main>
+      <a href="/">Home page</a>
+      <h1>Theme Switcher Example</h1>
+      <div data-location="bottom" data-receive="themeSwitcher"></div>
 
     </bitty-5-1>
     <script src="/components/bitty-5.1.0.min.js"></script>
