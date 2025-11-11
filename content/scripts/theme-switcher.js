@@ -2,45 +2,59 @@ const themes = [
   ["auto", "Auto"],
   ["light", "Light"],
   ["dark", "Dark"],
-  ["hc", "High Contrast"],
+  ["high-contrast", "High Contrast"],
 ];
 
 const tmpl = `<div><label>
   <input type="radio" 
-    name="mode" 
+    name="mode-LOCATION" 
     value="KEY" 
     data-send="changeTheme" 
-    data-receive="setInitialOption" /> 
-  NAME 
-</label></div>`;
+    data-receive="syncChecked" 
+    CHECKED
+/>NAME</label></div>`;
 
 export default class {
+  bittyReady() {
+    this.api.setProp("--load-hider", "1");
+  }
+
   changeTheme(event, _el) {
     if (event.type === "input") {
       updateStyles(event.target.value);
+      this.api.trigger("syncChecked");
     }
   }
 
-  setInitialOption(_event, el) {
-    let theme = localStorage.getItem("theme");
-    if (!theme) {
-      theme = "auto";
-    }
-    if (el.value === theme) { 
-      el.checked = true;
+  getCurrentTheme() {
+    let current = localStorage.getItem("theme");
+    if (current) {
+      return current;
+    } else {
+      return "auto";
     }
   }
 
-  async loadSwitcher(event, _el) {
+  async themeSwitcher(_event, el) {
     for (let theme of themes) {
+      const checked = this.getCurrentTheme() === theme[0] ? "checked" : "";
       const subs = [
         ["KEY", theme[0]],
-        ["NAME", theme[1]]
+        ["NAME", theme[1]],
+        ["LOCATION", el.dataset.location],
+        ["CHECKED", checked]
       ];
       const option = this.api.makeElement(tmpl, subs);
-      await event.target.appendChild(option);
+      await el.appendChild(option);
     }
-    this.api.forward(null, "setInitialOption");
+  }
+
+  syncChecked(_event, el) {
+    if (el.value === this.getCurrentTheme()) {
+      el.checked = true;
+    } else {
+      el.checked = false;
+    }
   }
 };
 

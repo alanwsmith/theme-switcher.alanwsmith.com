@@ -5,6 +5,20 @@
     [! include "styles/_main.html" !]
 
 <style>
+
+:root {
+  --load-hider: 0;
+}
+
+.load-hider {
+  opacity: var(--load-hider);
+}
+
+[data-receive=themeSwitcher] {
+  display: flex;
+  gap: 1rem;
+}
+
   [! include "_includes/styles/0010-colors.css" !]
   [! include "_includes/styles/0020-light-mode.css" !]
   [! include "_includes/styles/0030-dark-mode.css" !]
@@ -14,9 +28,15 @@
     [! include "_includes/theme-loader.html" !]
   </head>
   <body>
-    <div>
       [! include "_wrappers/_noscript.html" !]
-      <header class="default-wrapper xlarge-bottom-margin">
+
+    <bitty-5-1 
+      data-connect="/scripts/theme-switcher.js"
+      data-send="themeSwitcher"
+      class="load-hider"
+      >
+
+      <header class="default-wrapper xlarge-bottom-margin default-flow">
         <div class="small-font">
           from <a href="https://www.alanwsmith.com/">alan w smith</a> ~
           [@- ' ' -@]
@@ -28,7 +48,9 @@
           <a href="https://links.alanwsmith.com/">other projects</a> ~
           <a href="https://www.alanwsmith.com/feeds/posts.xml">rss</a>
         </div>
+        <div data-location="top" data-receive="themeSwitcher" class="small-font"></div>
       </header>
+
       <main class="default-wrapper">
         <hgroup>
           <h1>Page Theme Switcher</h1>
@@ -39,13 +61,13 @@
         </p>
 
         <h2>Live Example</h2>
-        [! include "_includes/theme-switcher.html" !]
+        <div data-location="middle" data-receive="themeSwitcher"></div>
 
         <h2>Overview</h2>
         <p>The process I'm using breaks down like this:</p>
         <ol>
-          <li>Create individual CSS Custom Property/Variables for each theme.</li>
-          <li>Create light and dark mode variables that point to the individual variables for each theme.</li>
+          <li>Create individual CSS Custom Property/Variables for each theme. I'm using three ('light', 'dark', and 'high-contrast'), but you can make as many as you'd like.</li>
+          <li>Create light and dark mode variables that point to the individual variables for each theme. (Nothing is done with 'high-contrast' at this stage as it's only set by JavaScript). </li>
           <li>Create element styles that call `*--switch` variables that don't initially exist 
             with fallbacks to the mode specific variables.</li>
           <li>Add a script tag to the head of the document that uses 
@@ -67,7 +89,7 @@
 
         <h2>Details</h2>
 
-        <h3>Style Sheet</h3>
+        <h3>The CSS</h3>
         <p>My style sheet breaks down into four sections:</p>
 
         <ol>
@@ -79,7 +101,7 @@
           </li>
           <li>
             <p>
-              Default variables set to use the primary `--light``
+              Default variables set to use the primary `--light-*``
               variables</p>
             <pre class="code-block">[!- filter highlight_css|safe -!]
               [!- include "_includes/styles/0020-light-mode.css" -!]
@@ -87,7 +109,7 @@
           </li>
           <li>
             <p>
-              Dark mode variables set to use the primary `--dark``
+              Dark mode variables set to use the primary `--dark-*``
               variables</p>
             <pre class="code-block">[!- filter highlight_css|safe -!]
               [!- include "_includes/styles/0030-dark-mode.css" -!]
@@ -120,46 +142,53 @@
           colors to the <code>*--switch</code> versions. 
         </p>
         <p>
-          If the theme passed to the function is <code>auto</code>,
-          then it remove the custom <code>*--switch</code> properties. 
+          The function checks to make sure a theme 
+          value is passed then uses it to determine what
+          happens next. 
+          It it's <code>auto</code>,
+          the function removes the custom <code>*--switch</code> properties. 
           Otherwise, it adds them with the given theme name. 
         </p>
         <p>
-          After the function is made the script checks to see
-          if there's a localStorage value for the theme. 
-          If there is, it calls the function with it. 
-          Otherwise, nothing else happens.
-        </p>
-
-        <p>
-          The last thing the function does is to set
-          the localStorage value. Doing that means
+          After the properties, the function
+          also updates the localStorage value
+          with the theme. 
+          Doing that means
           all the storage checking and setting
           happens in the same place. No need
           to mess with it in whatever scripting
           is used for the interface. 
         </p>
+        <p>
+          After the function is set up, the 
+          script makes an initial call to it
+          with the current localStorage 
+          value for `theme`.
+        </p>
+
 
         <h3>The Interface</h3>
         <p>
           The last step is making an interface on the page.
-          I'm using <a href="https://bitty.alanwsmith.com/">bitty</a>,
-          but other approaches would work just as well. The 
+          I'm using <a href="https://bitty.alanwsmith.com/">bitty</a>.
+          Other approaches would work just as well. The 
           only real requirement is calling the
           <code>updateStyles()</code> function with
           the name of the theme. 
         </p>
 
-
-        <details><summary>bitty approach</summary>
-
+        <details class="default-flow"><summary>bitty approach</summary>
         <p>
           Since the theme switcher doesn't work
-          without JavaScript, I use this for
-          my HTML:</p>
+          without JavaScript. So, I use this
+          empty HTML element that gets populated
+          directly by it. That way, the HTML
+          radio buttons don't show up on the page
+            if the JavaScript fails for some reason.
+          </p>
 
             <pre class="code-block">[!- filter highlight_html|safe -!]
-              [!- include "_includes/theme-switcher.html" -!]
+<div data-location="area-name" data-receive="themeSwitcher"></div>
               [!- endfilter -!]</pre>
 
         <p>
@@ -183,8 +212,16 @@
         [!- include "full-example/index.html" -!]
         [!- endfilter -!]</pre>
 
+        <p>
+          The `/styles/example-styles.css` file looks like
+          this:</p>
 
-      <h2>Notes</h2>
+      <pre class="code-block">[!- filter highlight_css|safe -!]
+        [!- include "styles/example-styles.css" -!]
+        [!- endfilter -!]</pre>
+
+
+      <h2>Endnotes</h2>
         <ul>
           <li>
             Some folks have Strong Opinions about putting 
@@ -194,6 +231,7 @@
             a color is found/set on the JavaScript
             side. 
           </li>
+
 
           <li>
             I'm intentionally avoiding a <code>noscript</code>
@@ -216,29 +254,68 @@
             to my site where I need to 
             adjust what styles are getting updated. 
           </li>
+
           <li>
-            I'm nod doing anything with `color-scheme: light dark;`
+            I'm not doing anything with `color-scheme: light dark;`
             in this example. I still need to dig
             into it to figure out how to make
             it reactive to JavaScript when
-            that's what sets the theme. 
+            that's what sets the theme. (e.g. 
+            switching to the `light` version 
+            when JavaScript sets the theme 
+            to `light`, but the value coming
+            in from `prefers-color-scheme` is `dark`.
           </li>
 
+          <li>
+            I'm not doing anything to update different
+            windows if you have multiple pages
+            open when you change themes. That's entirely
+            possible, but not worth the complexity 
+            for the sites I generally build.
+          </li>
+
+          <li>
+            The bitty code includes a `load-hider` that
+            sets the opacity of the main element to 
+            zero until it's finished loading. That's
+            not strictly necessary for the theme switcher.
+            However, it does prevent the page from 
+            jumping around visually as the theme switcher
+            buttons are populated. (noscript and JavaScript
+            setTimeout fallbacks are included to
+            cover times when the main script doesn't
+            load or JavaScript isn't available.)
+          </li>
+
+          <li>
+            The interface I'm building on these
+            pages with bitty provides the ability
+            to have multiple instances of the
+            switcher on the page and keep them
+            all in sync. That's not necessary,
+            but I like having the feature.
+          </li>
           
           <li>
-            You can
-            <a href="https://bitty.alanwsmith.com/">go here to learn more about the bitty web component</a>
-            if you're interested. It adds interactivity 
-            to pages through a single file.
+            bitty is a web component that makes pages
+            interactive. You can
+            <a href="https://bitty.alanwsmith.com/">go here to learn more about it</a>.
           </li>
 
         </ul>
 
-
       </main>
-      [! include "_wrappers/_footer.html" !]
-    </div>
 
-    <script src="/components/bitty-5.0.0.min.js"></script>
+      [! include "_wrappers/_footer.html" !]
+
+    </bitty-5-1>
+
+    <script src="/components/bitty-5.1.0.min.js"></script>
+    <script>
+      setTimeout(() => {
+        document.documentElement.style.setProperty("--load-hider", "1");
+      }, 1300);
+    </script>
   </body>
 </html>

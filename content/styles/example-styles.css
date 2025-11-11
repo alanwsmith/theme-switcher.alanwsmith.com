@@ -1,0 +1,36 @@
+:root {
+  --light--link: goldenrod;
+  --light--background: slategray;
+  --light--color: black;
+  --dark--link: blue;
+  --dark--background: black;
+  --dark--color: white;
+  --high-contrast--link: green;
+  --high-contrast--background: black;
+  --high-contrast--color: yellow;
+}
+
+:root {
+  --link: var(--light--link);
+  --background: var(--light--background);
+  --color: var(--light--color);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --link: var(--dark--link);
+    --background: var(--dark--background);
+    --color: var(--dark--color);
+  }
+}
+
+a {
+  color: var(--link--switch, var(--link));
+}
+
+body {
+  background-color: 
+    var(--background--switch, var(--background));
+  color: var(--color--switch, var(--color));
+}
+
