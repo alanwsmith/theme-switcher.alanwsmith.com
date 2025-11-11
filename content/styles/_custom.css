@@ -6,10 +6,13 @@
 }
 
 .code-block {
-  background: var(--match-faded);
+  border: 1px solid white;
+  background-color: #222;
+  color: #ddd;
   border-radius: var(--default-radius);
   margin: var(--default-margin);
-  padding: var(--default-padding);
+  padding: var(--xlarge-padding);
+  font-size: var(--small-font);
 }
 
 hgroup {

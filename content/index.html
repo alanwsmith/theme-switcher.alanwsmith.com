@@ -34,28 +34,191 @@
           <h1>Page Theme Switcher</h1>
         </hgroup>
         
-        <p>This is how I'm doing my color mode/theme switcher.</p>
+        <p>
+          This is how I'm doing my color mode/theme/scheme switcher.
+        </p>
 
-        <h2>Demo</h2>
-        <p>Here's the live example</p>
+        <h2>Live Example</h2>
         [! include "_includes/theme-switcher.html" !]
 
         <h2>Overview</h2>
-        <p>The process I'm using breaks down like this</p>
+        <p>The process I'm using breaks down like this:</p>
         <ol>
           <li>Create individual CSS Custom Property/Variables for each theme.</li>
-          <li>Create light and dark mode variables that point to the individual variables for each theme</li>
+          <li>Create light and dark mode variables that point to the individual variables for each theme.</li>
           <li>Create element styles that call `--switch` variables that don't initially exist 
-            with fallbacks to the mode specific variables</li>
-          <li>If JavaScript is available use it to populate the `--switch` variables
-            based of user selections on the page</li>
+            with fallbacks to the mode specific variables.</li>
+          <li>Add a script tag to the head of the document that uses 
+            JavaScript (if it's available) to populate the `--switch` variables
+            based of user selections on the page.</li>
         </ol>
+
+        <p>
+          The result is a progressively enhanced theme
+          setup. JavaScript is used to set the theme
+          if everything is functional. Values fall
+          back to the `prefers-color-scheme` if JavaScript
+          is either unavailable or if no manual 
+          preference has been set. If the 
+          `prefers-color-scheme` value isn't found
+          the styles fall back to the non-customized
+          version. 
+        </p>
+
+        <h2>Details</h2>
+
+        <h3>Style Sheet</h3>
+        <p>My style sheet breaks down into four sections:</p>
+
+        <ol>
+          <li>
+            <p>The base color variables for each theme</p>
+            <pre class="code-block">[!- filter highlight_css|safe -!]
+              [!- include "_includes/styles/0010-colors.css" -!]
+              [!- endfilter -!]</pre>
+          </li>
+          <li>
+            <p>
+              Default variables set to use the primary `--light``
+              variables</p>
+            <pre class="code-block">[!- filter highlight_css|safe -!]
+              [!- include "_includes/styles/0020-light-mode.css" -!]
+              [!- endfilter -!]</pre>
+          </li>
+          <li>
+            <p>
+              Dark mode variables set to use the primary `--dark``
+              variables</p>
+            <pre class="code-block">[!- filter highlight_css|safe -!]
+              [!- include "_includes/styles/0030-dark-mode.css" -!]
+              [!- endfilter -!]</pre>
+          </li>
+          <li>
+            <p>Page element styles that set to use `--switch` variables
+              (that don't exist yet) with fallbacks to the 
+              basic variable names. </p>
+            <pre class="code-block">[!- filter highlight_css|safe -!]
+              [!- include "_includes/styles/0040-body.css" -!]
+              [!- endfilter -!]</pre>
+          </li>
+        </ol>
+
+        <h3>The JavaScript </h3>
+        <p>
+          This script tag goes directly in the &lt;head&gt; of the
+          page directly after the call for the stylesheet. 
+        </p>
+          <pre class="code-block">[!- filter highlight_html|safe -!]
+            [!- include "_includes/theme-loader.html" -!]
+            [!- endfilter -!]</pre>
+
+        <p>
+          The first thing the script does is make the <code>updateStyles()</code>
+          function. The <code>styleKeys</code> array inside it
+          defines the list of styles to update based off the
+          naming the naming convention that maps the base
+          colors to the <code>--switch</code> versions. 
+        </p>
+        <p>
+          If the theme passed to the function is <code>auto</code>,
+          then it remove the custom <code>*--switch</code> properties. 
+          Otherwise, it adds them with the given theme name. 
+        </p>
+        <p>
+          After the function is made the script checks to see
+          if there's a localStorage value for the theme. 
+          If there is, it calls the function with it. 
+          Otherwise, nothing else happens.
+        </p>
+
+        <p>
+          The last thing the function does is to set
+          the localStorage value. Doing that means
+          all the storage checking and setting
+          happens in the same place. No need
+          to mess with it in whatever scripting
+          is used for the interface. 
+        </p>
+
+        <h3>The Interface</h3>
+        <p>
+          The last step is making an interface on the page.
+          I'm using <a href="https://bitty.alanwsmith.com/">bitty</a>,
+          but other approaches would work just as well. The 
+          only real requirement is calling the
+          <code>updateStyles()</code> function with
+          the name of the theme. 
+        </p>
+
+        <p>
+          Since the theme switcher doesn't work
+          without JavaScript, I use this for
+          my HTML:</p>
+
+            <pre class="code-block">[!- filter highlight_html|safe -!]
+              [!- include "_includes/theme-switcher.html" -!]
+              [!- endfilter -!]</pre>
+
+        <p>
+          And then this in the `/scripts/theme-switcher.js` file:
+        </p>
+
+            <pre class="code-block">[!- filter highlight_javascript|safe -!]
+              [!- include "scripts/theme-switcher.js" -!]
+              [!- endfilter -!]</pre>
+
+
+        <h2>Full Example</h2>
+        <p>
+          Here's a full HTML page to show how
+          everything looks when combined that
+          you can <a href="/full-example/">check out here</a>.
+        </p>
+
+      <pre class="code-block">[!- filter highlight_html|safe -!]
+        [!- include "full-example/index.html" -!]
+        [!- endfilter -!]</pre>
+
+
+      <h2>Notes</h2>
+        <ul>
+          <li>
+            Some folks have Strong Opinions about putting 
+            inline script tags on pages. I like
+            the approach here because it helps ensure
+            there's no flash between colors when
+            a color is found/set on the JavaScript
+            side. 
+          </li>
+          <li>
+            This approach requires explicitly listing
+            all the keys for the styles you want
+            to change (e.g. `background`, `color`,
+            `link`). Another approach would be 
+            to loop through all the properties
+            and do a find/replace style update. 
+            That <a href="https://tylergaw.com/blog/how-to-get-all-custom-properties-on-a-page-in-javascript/">
+              ends up being a lot more code</a>.
+            I may switch to that at some point,
+            but I don't have that many updates
+            to my site where I need to 
+            adjust what styles are getting updated. 
+          </li>
+          
+          <li>
+            You can
+            <a href="https://bitty.alanwsmith.com/">go here to learn more about the bitty web component</a>
+            if you're interested. It adds interactivity 
+            to pages through a single file.
+          </li>
+
+        </ul>
 
 
       </main>
       [! include "_wrappers/_footer.html" !]
     </div>
 
-    <script src="/components/bitty-4.0.0-rc1.full.js"></script>
+    <script src="/components/bitty-5.0.0.min.js"></script>
   </body>
 </html>

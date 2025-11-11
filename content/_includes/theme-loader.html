@@ -1,20 +1,24 @@
-<script>
-  function updateStyles(theme) {
-    const styleKeys = [`a`, `background-color`, `color`];
-    styleKeys.forEach((styleKey) => {
-      const key = `--${styleKey}--switch`;
-      if (theme === "auto") {
-        document.documentElement.style.removeProperty(key);
-      } else {
-        const value = `var(--${theme}--${styleKey})`;
-        document.documentElement.style.setProperty(key, value);
+    <script>
+      function updateStyles(theme) {
+        const styleKeys = [`background`, `color`, `link`];
+        styleKeys.forEach((styleKey) => {
+          const key = `--${styleKey}--switch`;
+          if (theme === "auto") {
+            document.documentElement.style.removeProperty(key);
+          } else {
+            const value = `var(--${theme}--${styleKey})`;
+            document.documentElement.style.setProperty(
+              key, value
+            );
+          }
+        });
+        localStorage.setItem("theme", theme);
       }
-    });
-    localStorage.setItem("theme", theme);
-  }
-  const theme = localStorage.getItem("theme");
-  if (theme) { 
-    updateStyles(theme);
-  }
-</script>
+
+      const theme = localStorage.getItem("theme");
+
+      if (theme) { 
+        updateStyles(theme);
+      }
+    </script>
 

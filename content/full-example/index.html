@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Theme Switcher Example</title>
+    <meta charset="UTF-8" />
+    <meta 
+      name="viewport" 
+      content="width=device-width, initial-scale=1.0" />
+    <style>
+[! include "_includes/styles/0010-colors.css" !]
+
+[! include "_includes/styles/0020-light-mode.css" !]
+
+[! include "_includes/styles/0030-dark-mode.css" !]
+
+[! include "_includes/styles/0040-body.css" !]
+    </style>
+
+[! include "_includes/theme-loader.html" !]
+
+  </head>
+  <body>
+    <header>
+      <a href="/">Home page</a>
+    </header>
+    <main>
+      <h1>Theme Switcher Example</h1>
+
+      [! include "_includes/theme-switcher.html" !]
+
+      <p>
+        This is an example with. The styles 
+        would normally be moved to a separate 
+        file. They are included directly on the 
+        page here to make things easier to 
+        follow.
+      </p>
+    </main>
+
+    <script src="/components/bitty-5.0.0.min.js"></script>
+  </body>
+</html>
+
+
