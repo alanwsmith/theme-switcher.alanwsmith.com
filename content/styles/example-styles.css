@@ -1,36 +1,11 @@
-:root {
-  --light--link: goldenrod;
-  --light--background: slategray;
-  --light--color: black;
-  --dark--link: blue;
-  --dark--background: black;
-  --dark--color: white;
-  --high-contrast--link: green;
-  --high-contrast--background: black;
-  --high-contrast--color: yellow;
-}
+/* asdfasdfasd */
 
-:root {
-  --link: var(--light--link);
-  --background: var(--light--background);
-  --color: var(--light--color);
-}
+[! include "_includes/styles/0010-colors.css" !]
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --link: var(--dark--link);
-    --background: var(--dark--background);
-    --color: var(--dark--color);
-  }
-}
+[! include "_includes/styles/0020-light-mode.css" !]
 
-a {
-  color: var(--link--switch, var(--link));
-}
+[! include "_includes/styles/0030-dark-mode.css" !]
 
-body {
-  background-color: 
-    var(--background--switch, var(--background));
-  color: var(--color--switch, var(--color));
-}
+[! include "_includes/styles/0040-body.css" !]
+
 

@@ -1,6 +1,7 @@
-      :root {
-        --link: var(--light--link);
-        --background: var(--light--background);
-        --color: var(--light--color);
-      }
+:root {
+  --link: var(--link--switch, var(--light--link));
+  --background: var(--background--switch, var(--light--background));
+  --color: var(--color--switch, var(--light--color));
+}
+
 
