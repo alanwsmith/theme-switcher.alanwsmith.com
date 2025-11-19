@@ -10,7 +10,7 @@ const tmpl = `<div><label>
     name="mode-LOCATION" 
     value="KEY" 
     data-send="changeTheme" 
-    data-receive="syncChecked" 
+    data-receive="syncCheckedTheme" 
     CHECKED
 />NAME</label></div>`;
 
@@ -22,7 +22,7 @@ export default class {
   changeTheme(event, _el) {
     if (event.type === "input") {
       updateStyles(event.target.value);
-      this.api.trigger("syncChecked");
+      this.api.trigger("syncCheckedTheme");
     }
   }
 
@@ -49,7 +49,7 @@ export default class {
     }
   }
 
-  syncChecked(_event, el) {
+  syncCheckedTheme(_event, el) {
     if (el.value === this.getCurrentTheme()) {
       el.checked = true;
     } else {

@@ -1,12 +1,12 @@
-      :root {
-        --light--link: goldenrod;
-        --light--background: slategray;
-        --light--color: black;
-        --dark--link: blue;
-        --dark--background: black;
-        --dark--color: white;
-        --high-contrast--link: green;
-        --high-contrast--background: black;
-        --high-contrast--color: yellow;
-      }
+:root {
+  --light--link: goldenrod;
+  --light--background: slategray;
+  --light--color: black;
+  --dark--link: blue;
+  --dark--background: black;
+  --dark--color: #aaa;
+  --high-contrast--link: green;
+  --high-contrast--background: black;
+  --high-contrast--color: yellow;
+}
 
